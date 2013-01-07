@@ -7,24 +7,21 @@
 //  You may use and copy in accordance to the BSD License
 //  included with this computer code.
 //
-  
+	
+#define YYSTYPE Node
+#import <Foundation/Foundation.h>
+#include "lex.yy.m"
+	
 #import "Node.h"
 #import "StringNode.h"
 #import "BooleanNode.h"
 #import "NumberNode.h"
 #import "FunctionNode.h"
 #import "ArrayNode.h"
-  
-Node* yylastParsedNode = nil; 
-extern void yyerror(char* s);
-extern int yylex();
-extern int yyYYINPUT(char* theBuffer,int maxSize);
 
 %}
 
-%union {
-  struct Node* nodeValue;
-}
+%parse-param {Node* expr}
 
 %token FUNCTION_AND FUNCTION_OR FUNCTION_NOT FUNCTION_PLUS FUNCTION_MINUS
 %token <nodeValue> NUMBER
@@ -44,89 +41,72 @@ extern int yyYYINPUT(char* theBuffer,int maxSize);
 qualifier : LEFT_PAREN qualifier RIGHT_PAREN 
 {
     $$ = $2;
-    yylastParsedNode = $$;
 }
 | VALUE_TRUE 
 {
     $$ = [BooleanNode trueNode];
-    yylastParsedNode = $$;
 }
 | VALUE_FALSE
 {
     $$ = [BooleanNode falseNode];  
-    yylastParsedNode = $$;
 }
 | STRING
 {
   $$ = $1;  
-  yylastParsedNode = $$;  
 }
 | NUMBER
 {
   $$ = $1;  
-  yylastParsedNode = $$;  
 }
 | qualifier FUNCTION_AND qualifier
 {
   $$ = [FunctionNode function:@"AND" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | qualifier FUNCTION_OR qualifier
 {
   $$ = [FunctionNode function:@"OR" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | FUNCTION_NOT qualifier
 {
   $$ = [FunctionNode function:@"NOT" withNodes:$2,nil];
-  yylastParsedNode = $$;
 }
 | qualifier FUNCTION_EQUALS qualifier
 {
   $$ = [FunctionNode function:@"EQUALS" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | qualifier FUNCTION_PLUS qualifier
 {
   $$ = [FunctionNode function:@"PLUS" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | qualifier FUNCTION_MINUS qualifier
 {
   $$ = [FunctionNode function:@"MINUS" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | qualifier FUNCTION_ASSIGN qualifier
 {
   $$ = [FunctionNode function:@"ASSIGN" withNodes:$1,$3,nil];
-  yylastParsedNode = $$;
 }
 | variable LEFT_PAREN RIGHT_PAREN
 {
   $$ = [FunctionNode function:$1 withArray:nil];
-  yylastParsedNode = $$;
 }
 | variable LEFT_PAREN qualifier_list RIGHT_PAREN
 {
   $$ = [FunctionNode function:$1 withArray:$3];
-  yylastParsedNode = $$;
 }
 | variable
 {
   $$ = $1;
-  yylastParsedNode = $$;
 }
 ;
 
 qualifier_list : qualifier 
 {
   $$ = $1;
-  yylastParsedNode = $$;  
 }
 | qualifier_list COMMA qualifier
 {
   $$ = [ArrayNode arrayWithNode:$1 withNode:$3];
-  yylastParsedNode = $$;    
 }
 ;
 
@@ -137,4 +117,9 @@ variable : IDENTIFIER
 
 %%
 
-
+void yyerror(Node* epxr,const char* format, ...) {
+	va_list ap;
+	va_start(ap, s);
+	NSLog(@"Error on line: %d: %s",yylloc.first_line,format);
+	va_end(ap);
+}

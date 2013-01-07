@@ -7,8 +7,8 @@
 //  You may use and copy in accordance to the BSD License
 //  included with this computer code.
 //
-  
-#import "y.tab.h"
+
+#import "ExpressionParser.tab.h"
 #import "Node.h"
 #import "StringNode.h"
 #import "NumberNode.h"
@@ -18,6 +18,11 @@
 #define YY_INPUT(b,r,s) (r = yyYYINPUT(b,s))
   
 %}
+%option reentrant
+%option bison-bridge
+%option bison-locations
+%option noyywrap
+%option yylineno
 
 PM      [+-]
 DIGIT   [0-9]

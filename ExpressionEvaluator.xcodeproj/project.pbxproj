@@ -74,6 +74,7 @@
 			children = (
 				14DE06D4169505060052F083 /* ExpressionEvaluator.plist */,
 				14DE06B8169504B30052F083 /* resources */,
+				6EFD62AD169B650100B9EDA2 /* src2 */,
 				14DE06BA169504B30052F083 /* src */,
 				14DE06D2169504B30052F083 /* LICENSE.md */,
 				14DE06D3169504B30052F083 /* README.md */,
@@ -155,6 +156,13 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		6EFD62AD169B650100B9EDA2 /* src2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = src2;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -322,6 +330,7 @@
 				14DE06B7169504680052F083 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "ExpressionEvaluator" */ = {
 			isa = XCConfigurationList;
