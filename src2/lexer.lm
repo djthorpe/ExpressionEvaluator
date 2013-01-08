@@ -22,10 +22,88 @@
 	}
 %}
 
+PM      [+-]
+DIGIT   [0-9]
+EX	    [Ee]{PM}?{DIGIT}+
+ID	    [A-Za-z_][A-Za-z0-9_]*
+TRUE	[Tt][Rr][Uu][Ee]
+FALSE	[Ff][Aa][Ll][Ss][Ee]
+WSP	    [ \t\r\n]
+AND	    [Aa][Nn][Dd]
+OR	    [Oo][Rr]
+NOT	    [Nn][Oo][Tt]
+COLON   [\:]
+EQUALS  [=]
+
 %%
-[a-zA-Z][a-zA-Z0-9]+     return IDENTIFIER;
-.                        return ERR;
-\n                       /* ignore */
+
+\( {
+	return LEFT_PAREN; 
+}
+
+\) {
+	return RIGHT_PAREN;
+}
+
+\, {
+	return COMMA;
+}
+
+\+ {
+	return FUNCTION_PLUS;
+}
+
+\- { 
+	return FUNCTION_MINUS;
+}
+
+{DIGIT}*("."{DIGIT}*)?{EX}?	{
+	yylval->node = [Node node];
+	return NUMBER;
+}
+
+\'(\\.|[^\\'])*\' {
+	yylval->node = [Node node];
+	return STRING;
+}
+
+\"(\\.|[^\\"])*\" {
+	yylval->node = [Node node];
+	return STRING;
+}
+
+{TRUE} {
+	return VALUE_TRUE;
+}
+
+{FALSE} {
+	return VALUE_FALSE;
+}
+
+{AND} {
+	return FUNCTION_AND;
+}
+
+{OR} {
+	return FUNCTION_OR;
+}
+
+{NOT} {
+	return FUNCTION_NOT;
+}
+
+{EQUALS} {
+	return FUNCTION_EQUALS;
+}
+
+{COLON}{EQUALS} { 
+	return FUNCTION_ASSIGN;
+}
+
+{ID} {
+	return ID;
+}
+
 %%
 
 @implementation ParserContext (Bison)

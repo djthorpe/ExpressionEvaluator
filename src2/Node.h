@@ -5,6 +5,7 @@
 	
 }
 
++(Node* )node;
 -(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary;
 
 @end

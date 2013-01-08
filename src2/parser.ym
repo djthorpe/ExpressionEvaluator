@@ -6,11 +6,17 @@
 %lex-param { void* scanner  }
 
 %union {
-	void* node;
+	Node* node;
 }
 
-%token <node> IDENTIFIER
-%token ERR
+%token FUNCTION_AND FUNCTION_OR FUNCTION_NOT FUNCTION_PLUS FUNCTION_MINUS
+%token <node> NUMBER
+%token <node> STRING
+%token <node> ID
+%token FUNCTION_EQUALS
+%token FUNCTION_ASSIGN
+%token LEFT_PAREN RIGHT_PAREN COMMA
+%token VALUE_TRUE VALUE_FALSE
 
 %{
 #import "ParserContext.h"
@@ -34,7 +40,7 @@ int yylex(YYSTYPE* lvalp,YYLTYPE* llocp,void* scanner);
 
 %%
 start:
-  IDENTIFIER {
+  ID {
 	  NSLog(@"identifier");
   }
 
