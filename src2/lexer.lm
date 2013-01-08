@@ -40,8 +40,31 @@
 }
 
 -(int)_inputToBuffer:(char* )buffer maxBytesToRead:(size_t)maxBytesToRead {
-	NSLog(@"Called _inputToBuffer");
-	return YY_NULL;
+	NSParameterAssert(_stream);
+	if([_stream streamStatus]==NSStreamStatusAtEnd) {
+		return YY_NULL;
+	}
+	if([_stream streamStatus]==NSStreamStatusClosed) {
+		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusClosed");
+		return YY_NULL;
+	}
+	if([_stream streamStatus]==NSStreamStatusError) {
+		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusError");
+		return YY_NULL;
+	}
+	if([_stream streamStatus]==NSStreamStatusNotOpen) {
+		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusNotOpen");
+		return YY_NULL;
+	}
+	NSInteger bytesRead = [_stream read:(uint8_t* )buffer maxLength:(NSUInteger)maxBytesToRead];
+	if(bytesRead==0) {
+		return YY_NULL;
+	}
+	if(bytesRead < 0) {
+		NSLog(@"_inputToBuffer: read operation failed");
+		return YY_NULL;
+	}
+	return (int)bytesRead;
 }
 
 -(void)_raiseError:(const char* )error line:(int)lineno {
