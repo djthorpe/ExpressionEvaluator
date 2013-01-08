@@ -1,10 +1,12 @@
 
 #import <Foundation/Foundation.h>
+#import "Node.h"
 
 @class ParserContext;
 
 typedef struct {
 	void* scanner;
+	__unsafe_unretained Node* result;
 } ParserCtx;
 
 ParserContext* yy_get_parser(ParserCtx* context);

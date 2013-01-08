@@ -1,27 +1,24 @@
+
+%{
+#import "Node.h"
+%}
+
 %pure-parser
 %locations
 %defines
 %error-verbose
 %parse-param { ParserCtx* context }
 %lex-param { void* scanner  }
+%union { __unsafe_unretained Node* node; }
 
-%union {
-	Node* node;
-}
+%token LEFT_PAREN RIGHT_PAREN
+%token VALUE_BOOL VALUE_NUMBER
 
-%token FUNCTION_AND FUNCTION_OR FUNCTION_NOT FUNCTION_PLUS FUNCTION_MINUS
-%token <node> NUMBER
-%token <node> STRING
-%token <node> ID
-%token FUNCTION_EQUALS
-%token FUNCTION_ASSIGN
-%token LEFT_PAREN RIGHT_PAREN COMMA
-%token VALUE_TRUE VALUE_FALSE
+%type<node> expression VALUE_BOOL VALUE_NUMBER
 
 %{
 #import "ParserContext.h"
 #import "ParserContext+Bison.h"
-#import "Node.h"
 
 void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
 	ParserContext* p = [ParserContext parserForContext:context];
@@ -39,9 +36,20 @@ int yylex(YYSTYPE* lvalp,YYLTYPE* llocp,void* scanner);
 %}
 
 %%
-start:
-  ID {
-	  NSLog(@"identifier");
-  }
+start : expression {
+	context->result = $1;
+}
+;
+
+expression : LEFT_PAREN expression RIGHT_PAREN {
+	$$ = $2;
+}
+| VALUE_BOOL {
+	$$ = $1;
+}
+| VALUE_NUMBER {
+	$$ = $1;
+}
+;
 
 

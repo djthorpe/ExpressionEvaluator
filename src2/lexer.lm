@@ -11,6 +11,7 @@
 #import "y.tab.h"
 #define YY_USER_ACTION yylloc->first_line = yylineno;
 #define YY_EXTRA_TYPE ParserCtx*
+	
 #define YY_INPUT(buf,bytes_read,max_size)                                \
 	{                                                                    \
 	    ParserContext* p = [ParserContext parserForContext:yyextra];     \
@@ -45,63 +46,19 @@ EQUALS  [=]
 	return RIGHT_PAREN;
 }
 
-\, {
-	return COMMA;
-}
-
-\+ {
-	return FUNCTION_PLUS;
-}
-
-\- { 
-	return FUNCTION_MINUS;
-}
-
-{DIGIT}*("."{DIGIT}*)?{EX}?	{
-	yylval->node = [Node node];
-	return NUMBER;
-}
-
-\'(\\.|[^\\'])*\' {
-	yylval->node = [Node node];
-	return STRING;
-}
-
-\"(\\.|[^\\"])*\" {
-	yylval->node = [Node node];
-	return STRING;
-}
-
 {TRUE} {
-	return VALUE_TRUE;
+	yylval->node = [Node booleanNode];
+	return VALUE_BOOL;
 }
 
 {FALSE} {
-	return VALUE_FALSE;
+	yylval->node = [Node booleanNode];
+	return VALUE_BOOL;
 }
 
-{AND} {
-	return FUNCTION_AND;
-}
-
-{OR} {
-	return FUNCTION_OR;
-}
-
-{NOT} {
-	return FUNCTION_NOT;
-}
-
-{EQUALS} {
-	return FUNCTION_EQUALS;
-}
-
-{COLON}{EQUALS} { 
-	return FUNCTION_ASSIGN;
-}
-
-{ID} {
-	return ID;
+{DIGIT}*("."{DIGIT}*)?{EX}? {
+	yylval->node = [Node numberNode];
+	return VALUE_NUMBER;
 }
 
 %%

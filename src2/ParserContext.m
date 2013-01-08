@@ -40,8 +40,13 @@ NSMutableDictionary* _parsers = nil;
 	NSParameterAssert(_scanner);
 	NSParameterAssert(_stream==nil);
 	_stream = stream;
+	_scanner->result = nil;
 	int error = yyparse(_scanner);
-	NSLog(@"Parse result = %d",error);
+	if(error) {
+		NSLog(@"Parse result=%@, err=%d",_scanner->result,error);
+	} else {
+		NSLog(@"Parse result=%@",_scanner->result);		
+	}
 }
 
 -(void)parseString:(NSString* )expression {
