@@ -1,6 +1,8 @@
 
 %{
 #import "Node.h"
+#import "ParserContext.h"
+#import "ParserContext+Bison.h"
 %}
 
 %pure-parser
@@ -17,8 +19,6 @@
 %type<node> expression VALUE_BOOL VALUE_NUMBER
 
 %{
-#import "ParserContext.h"
-#import "ParserContext+Bison.h"
 
 void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
 	ParserContext* p = [ParserContext parserForContext:context];
