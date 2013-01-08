@@ -8,10 +8,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParserContext.h"
 
 int main (int argc, const char * argv[]) {
 	@autoreleasepool {
-		NSLog(@"Hello world!");
+		ParserContext* parser = [[ParserContext alloc] init];
+		[parser parse:@"Hello, world!"];
 	}
 	return 0;
 }

@@ -1,0 +1,36 @@
+%option reentrant
+%option bison-bridge
+%option bison-locations
+%option noyywrap
+%option yylineno
+
+%{
+#import "ParserContext.h"
+#import "Node.h"
+#import "y.tab.h"
+#define YY_USER_ACTION yylloc->first_line = yylineno;
+#define YY_EXTRA_TYPE void*
+#define YY_INPUT(buf,result,max_size) { \
+        result = YY_NULL;               \
+	}
+%}
+
+%%
+[a-zA-Z][a-zA-Z0-9]+     return IDENTIFIER;
+.                        return ERR;
+\n                       /* ignore */
+%%
+
+@implementation ParserContext
+
+-(void)_initScanner {
+	yylex_init(&(_scanner->scanner));
+	yyset_extra(_scanner->scanner,_scanner->scanner);
+}
+
+-(void)_deallocScanner {
+	yylex_destroy(_scanner->scanner);
+}
+
+@end
+

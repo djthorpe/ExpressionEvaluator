@@ -1,0 +1,35 @@
+%pure-parser
+%locations
+%defines
+%error-verbose
+%parse-param { ParserCtx* context }
+%lex-param { void* scanner  }
+
+%union {
+	void* node;
+}
+
+%token <node> IDENTIFIER
+%token ERR
+
+%{
+#import "ParserContext.h"
+#import "Node.h"
+
+void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
+	NSLog(@"Error at line %d: %s",locp->first_line,err);
+}
+
+int yylex(YYSTYPE* lvalp, YYLTYPE* llocp,void* scanner);
+
+#define scanner context->scanner
+
+%}
+
+%%
+start:
+  IDENTIFIER {
+	  NSLog(@"identifier");
+  }
+
+
