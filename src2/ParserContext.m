@@ -11,14 +11,14 @@
 
 @implementation ParserContext
 
-NSMutableDictionary* parsers = nil;
+NSMutableDictionary* _parsers = nil;
 
 +(void)initialize {
-	parsers = [NSMutableDictionary dictionary];
+	_parsers = [NSMutableDictionary dictionary];
 }
 
-+(ParserContext* )_parserForContext:(ParserCtx* )context {
-	return [parsers objectForKey:context];
++(ParserContext* )parserForContext:(ParserCtx* )context {
+	return [_parsers objectForKey:[NSValue valueWithPointer:context]];
 }
 
 -(id)init {
@@ -27,14 +27,14 @@ NSMutableDictionary* parsers = nil;
 		_scanner = (ParserCtx* )malloc(sizeof(ParserCtx));
 		NSParameterAssert(_scanner);
 		[self _initScanner];
-		[parsers setObject:self forKey:_scanner];
+		[_parsers setObject:self forKey:[NSValue valueWithPointer:_scanner]];
 	}
 	return self;
 }
 
 -(void)dealloc {
 	if(_scanner) {
-		[parsers removeObjectForKey:_scanner];
+		[_parsers removeObjectForKey:[NSValue valueWithPointer:_scanner]];
 		[self _deallocScanner];
 		free(_scanner);
 	}

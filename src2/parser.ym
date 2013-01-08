@@ -17,12 +17,8 @@
 #import "ParserContext+Bison.h"
 #import "Node.h"
 
-ParserContext* yy_get_parser(ParserCtx* context) {
-	return [ParserContext _parserForContext:context];
-}
-
 void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
-	ParserContext* p = [ParserContext _parserForContext:context];
+	ParserContext* p = [ParserContext parserForContext:context];
 	if(p) {
 		[p _raiseError:err line:locp->first_line];
 	} else {

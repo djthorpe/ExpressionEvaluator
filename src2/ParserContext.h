@@ -20,6 +20,7 @@ ParserContext* yy_get_parser(ParserCtx* context);
 	ParserCtx* _scanner; // pointer to scanner struct
 }
 
--(void)parse:(NSString* )expression;
-
++(ParserContext* )parserForContext:(ParserCtx* )context;
+-(void)parseString:(NSString* )expression;
+-(void)parseInputStream:(NSInputStream* )stream;
 @end

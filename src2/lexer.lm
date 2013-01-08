@@ -11,14 +11,14 @@
 #import "y.tab.h"
 #define YY_USER_ACTION yylloc->first_line = yylineno;
 #define YY_EXTRA_TYPE ParserCtx*
-#define YY_INPUT(buf,bytes_read,max_size) \
-	{                             \
-	    ParserContext* p = yy_get_parser(yyextra);                      \
-	    if(p) {                                                    \
+#define YY_INPUT(buf,bytes_read,max_size)                                \
+	{                                                                    \
+	    ParserContext* p = [ParserContext parserForContext:yyextra];     \
+	    if(p) {                                                          \
 	        bytes_read = [p _inputToBuffer:buf maxBytesToRead:max_size]; \
-        } else {                                                        \
-            bytes_read = YY_NULL;                                       \
-        }                                                               \
+        } else {                                                         \
+            bytes_read = YY_NULL;                                        \
+        }                                                                \
 	}
 %}
 
