@@ -14,13 +14,23 @@
 
 %{
 #import "ParserContext.h"
+#import "ParserContext+Bison.h"
 #import "Node.h"
 
-void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
-	NSLog(@"Error at line %d: %s",locp->first_line,err);
+ParserContext* yy_get_parser(ParserCtx* context) {
+	return [ParserContext _parserForContext:context];
 }
 
-int yylex(YYSTYPE* lvalp, YYLTYPE* llocp,void* scanner);
+void yyerror(YYLTYPE* locp,ParserCtx* context,const char* err) {
+	ParserContext* p = [ParserContext _parserForContext:context];
+	if(p) {
+		[p _raiseError:err line:locp->first_line];
+	} else {
+		fprintf(stderr,"Error at line %d: %s\n",locp->first_line,err);
+	}
+}
+
+int yylex(YYSTYPE* lvalp,YYLTYPE* llocp,void* scanner);
 
 #define scanner context->scanner
 

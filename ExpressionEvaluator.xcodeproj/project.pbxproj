@@ -72,6 +72,7 @@
 		14DE06E2169505C80052F083 /* StringNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringNode.h; sourceTree = "<group>"; };
 		14DE06E3169505C80052F083 /* StringNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringNode.m; sourceTree = "<group>"; };
 		6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParserContext+Bison.h"; sourceTree = "<group>"; };
 		6EFD62AF169B65FC00B9EDA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD62C2169B678C00B9EDA2 /* lexer.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = lexer.lm; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 				6EFD62C2169B678C00B9EDA2 /* lexer.lm */,
 				6EFD62C7169B6D0000B9EDA2 /* parser.ym */,
 				6EFD62C4169B687600B9EDA2 /* ParserContext.h */,
+				6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */,
 				6EFD62C5169B687600B9EDA2 /* ParserContext.m */,
 				6EFD62CA169B704500B9EDA2 /* Node.h */,
 				6EFD62CB169B704500B9EDA2 /* Node.m */,
