@@ -14,9 +14,11 @@
 %union { __unsafe_unretained Node* node; }
 
 %token LEFT_PAREN RIGHT_PAREN
-%token VALUE_BOOL VALUE_NUMBER
+%token VALUE_BOOL VALUE_NUMBER VALUE_STRING
+%token FUNCTION_AND FUNCTION_OR FUNCTION_NOT FUNCTION_EQUALS FUNCTION_ASSIGN
+%token VARIABLE
 
-%type<node> expression VALUE_BOOL VALUE_NUMBER
+%type<node> expression VALUE_BOOL VALUE_NUMBER VALUE_STRING VARIABLE
 
 %{
 
@@ -44,11 +46,11 @@ start : expression {
 expression : LEFT_PAREN expression RIGHT_PAREN {
 	$$ = $2;
 }
-| VALUE_BOOL {
+| VALUE_BOOL | VALUE_NUMBER | VALUE_STRING | VARIABLE {
 	$$ = $1;
 }
-| VALUE_NUMBER {
-	$$ = $1;
+| expression FUNCTION_AND expression {
+	$$ = [Node functionNode:@"AND",$1,$3,nil];
 }
 ;
 

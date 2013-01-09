@@ -1,38 +1,40 @@
-//
-//  BooleanNode.m
-//  ExpressionEvaluator
-//
-//  Created by David Thorpe on 05/06/2006.
-//  Copyright 2006 Somethin' Else Sound Directions Limited.
-//  All rights reserved.
-//
-//  You may use and copy in accordance to the BSD License
-//  included with this computer code.
-//
 
 #import "BooleanNode.h"
 
-
 @implementation BooleanNode
 
--(id)initWithBoolean:(BOOL)theValue {
+@synthesize value = _value;
+
+-(id)init {
+	self = [super init];
+	if(self) {
+		_value = NO;
+	}
+	return self;
+}
+
+-(id)initWithValue:(BOOL)value {
   self = [super init];
   if(self) {
-    m_theValue = theValue;
+    _value = value;
   }
   return self;
 }
 
 +(BooleanNode* )trueNode {
-  return [[BooleanNode alloc] initWithBoolean:YES];
+  return [[BooleanNode alloc] initWithValue:YES];
 }
 
 +(BooleanNode* )falseNode {
-  return [[BooleanNode alloc] initWithBoolean:NO];
+  return [[BooleanNode alloc] initWithValue:NO];
 }
 
 -(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary {
-  return [NSNumber numberWithBool:m_theValue];
+	return [NSNumber numberWithBool:[self value]];
+}
+
+-(NSString* )description {
+	return [NSString stringWithFormat:@"<BooleanNode:%@>",[self value] ? @"TRUE" : @"FALSE"];
 }
 
 @end

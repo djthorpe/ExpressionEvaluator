@@ -47,18 +47,53 @@ EQUALS  [=]
 }
 
 {TRUE} {
-	yylval->node = [Node booleanNode];
+	yylval->node = [Node booleanNodeWithValue:YES];
 	return VALUE_BOOL;
 }
 
 {FALSE} {
-	yylval->node = [Node booleanNode];
+	yylval->node = [Node booleanNodeWithValue:NO];
 	return VALUE_BOOL;
 }
 
 {DIGIT}*("."{DIGIT}*)?{EX}? {
-	yylval->node = [Node numberNode];
+	yylval->node = [Node numberNodeWithValue:yytext];
 	return VALUE_NUMBER;
+}
+
+{ID} {
+	yylval->node = [Node variableNodeWithName:yytext];
+	return VARIABLE;
+}
+
+\'(\\.|[^\\'])*\' {
+	yylval->node = [Node stringNodeWithQValue:yytext];
+	return VALUE_STRING;
+}
+
+\"(\\.|[^\\"])*\" {
+	yylval->node = [Node stringNodeWithQValue:yytext];
+	return VALUE_STRING;
+}
+
+{AND} {
+	return FUNCTION_AND; 
+}
+
+{OR} { 
+	return FUNCTION_OR;
+}
+
+{NOT} {
+	return FUNCTION_NOT;
+}
+
+{EQUALS} {
+	return FUNCTION_EQUALS;
+}
+
+{COLON}{EQUALS} {
+	return FUNCTION_ASSIGN;
 }
 
 %%

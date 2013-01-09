@@ -1,33 +1,32 @@
-//
-//  NumberNode.m
-//  ExpressionEvaluator
-//
-//  Created by David Thorpe on 05/06/2006.
-//  Copyright 2006 Somethin' Else Sound Directions Limited.
-//  All rights reserved.
-//
-//  You may use and copy in accordance to the BSD License
-//  included with this computer code.
-//
 
 #import "NumberNode.h"
 
 @implementation NumberNode
 
--(id)initWithCString:(const char* )cString {
+@synthesize value = _value;
+
+-(id)init {
+	self = [super init];
+	if(self) {
+		_value = 0.0;
+	}
+	return self;
+}
+
+-(id)initWithString:(NSString* )string {
   self = [super init];
   if(self) {
-    m_theValue = [[NSString stringWithUTF8String:cString] doubleValue];
+	  _value = [string doubleValue];
   }
   return self;
 }
 
-+(NumberNode* )numberWithCString:(const char* )cString {
-  return [[NumberNode alloc] initWithCString:cString];
+-(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary {
+	return [NSNumber numberWithDouble:[self value]];
 }
 
--(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary {
-  return [NSNumber numberWithDouble:m_theValue];
+-(NSString* )description {
+	return [NSString stringWithFormat:@"<NumberNode:%lf>",[self value]];
 }
 
 @end

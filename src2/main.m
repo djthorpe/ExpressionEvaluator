@@ -13,7 +13,7 @@
 int main (int argc, const char * argv[]) {
 	@autoreleasepool {
 		ParserContext* parser = [[ParserContext alloc] init];
-		[parser parseString:@"(55.45666E-5 + 54)"];
+		[parser parseString:@"'hello'"];
 	}
 	return 0;
 }

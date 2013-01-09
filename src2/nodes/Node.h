@@ -5,11 +5,12 @@
 	
 }
 
-+(Node* )functionNode:(NSString* )operation,...;
+//+(Node* )stringNodeWithQuotedValue:(const char* )value;
 +(Node* )numberNodeWithValue:(const char* )value;
-+(Node* )stringNodeWithQuotedValue:(const char* )value;
 +(Node* )booleanNodeWithValue:(BOOL)value;
-+(Node* )identifierNodeWithName:(const char* )name;
++(Node* )variableNodeWithName:(const char* )name;
++(Node* )stringNodeWithQValue:(const char* )quoted;
++(Node* )functionNode:(NSString* )name,...;
 
 -(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary;
 
