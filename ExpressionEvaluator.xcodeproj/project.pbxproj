@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		14DE069E169504680052F083 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */; };
 		14DE06E4169505C80052F083 /* ArrayNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06D7169505C80052F083 /* ArrayNode.m */; };
-		14DE06E6169505C80052F083 /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06DB169505C80052F083 /* FunctionNode.m */; };
 		14DE06EB169505D70052F083 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C0169504B30052F083 /* Controller.m */; };
 		14DE06EC169505DB0052F083 /* ExpressionEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C2169504B30052F083 /* ExpressionEvaluator.m */; };
 		14DE06ED169505E10052F083 /* ExpressionLexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C3169504B30052F083 /* ExpressionLexer.lm */; };
@@ -59,8 +58,6 @@
 		14DE06D4169505060052F083 /* ExpressionEvaluator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExpressionEvaluator.plist; sourceTree = "<group>"; };
 		14DE06D6169505C80052F083 /* ArrayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayNode.h; sourceTree = "<group>"; };
 		14DE06D7169505C80052F083 /* ArrayNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayNode.m; sourceTree = "<group>"; };
-		14DE06DA169505C80052F083 /* FunctionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionNode.h; sourceTree = "<group>"; };
-		14DE06DB169505C80052F083 /* FunctionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionNode.m; sourceTree = "<group>"; };
 		6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		6E283FA3169D64B5004A1978 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		6E283FA4169D64B5004A1978 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
@@ -166,8 +163,6 @@
 			children = (
 				14DE06D6169505C80052F083 /* ArrayNode.h */,
 				14DE06D7169505C80052F083 /* ArrayNode.m */,
-				14DE06DA169505C80052F083 /* FunctionNode.h */,
-				14DE06DB169505C80052F083 /* FunctionNode.m */,
 			);
 			path = nodes;
 			sourceTree = "<group>";
@@ -292,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14DE06E4169505C80052F083 /* ArrayNode.m in Sources */,
-				14DE06E6169505C80052F083 /* FunctionNode.m in Sources */,
 				14DE06EB169505D70052F083 /* Controller.m in Sources */,
 				14DE06EC169505DB0052F083 /* ExpressionEvaluator.m in Sources */,
 				14DE06ED169505E10052F083 /* ExpressionLexer.lm in Sources */,

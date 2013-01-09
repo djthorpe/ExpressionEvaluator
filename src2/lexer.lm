@@ -46,6 +46,14 @@ EQUALS  [=]
 	return RIGHT_PAREN;
 }
 
+\+ {
+	return FUNCTION_PLUS;
+}
+
+\- {
+	return FUNCTION_MINUS;
+}
+
 {TRUE} {
 	yylval->node = [Node booleanNodeWithValue:YES];
 	return VALUE_BOOL;
@@ -59,11 +67,6 @@ EQUALS  [=]
 {DIGIT}*("."{DIGIT}*)?{EX}? {
 	yylval->node = [Node numberNodeWithValue:yytext];
 	return VALUE_NUMBER;
-}
-
-{ID} {
-	yylval->node = [Node variableNodeWithName:yytext];
-	return VARIABLE;
 }
 
 \'(\\.|[^\\'])*\' {
@@ -94,6 +97,11 @@ EQUALS  [=]
 
 {COLON}{EQUALS} {
 	return FUNCTION_ASSIGN;
+}
+
+{ID} {
+	yylval->node = [Node variableNodeWithName:yytext];
+	return VARIABLE;
 }
 
 %%

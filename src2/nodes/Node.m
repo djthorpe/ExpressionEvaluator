@@ -30,7 +30,16 @@
 }
 
 +(Node* )functionNode:(NSString* )name,... {
-	return nil;	
+	NSParameterAssert(name);
+	NSMutableArray* nodes = [NSMutableArray arrayWithCapacity:2];
+	va_list ap;
+	va_start(ap,name);
+	Node* node = nil;
+	while((node = va_arg(ap,Node* ))) {
+		[nodes addObject:node];
+	}
+	va_end(ap);
+	return [[FunctionNode alloc] initWithName:name nodes:nodes];
 }
 
 -(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary {

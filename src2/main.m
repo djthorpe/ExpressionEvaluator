@@ -13,7 +13,7 @@
 int main (int argc, const char * argv[]) {
 	@autoreleasepool {
 		ParserContext* parser = [[ParserContext alloc] init];
-		[parser parseString:@"'hello'"];
+		[parser parseString:@"'hello' AND (world + 42.3)"];
 	}
 	return 0;
 }

@@ -7,6 +7,10 @@
 	NSArray* _nodes;
 }
 
+// constructor
+-(id)initWithName:(NSString* )name nodes:(NSArray* )nodes;
+
+// properties
 @property (readonly,retain) NSString* name;
 @property (readonly,retain) NSArray* nodes;
 
