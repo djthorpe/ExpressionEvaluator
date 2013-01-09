@@ -1,44 +1,32 @@
 
 #import "Node.h"
+#import "BooleanNode.h"
+#import "NumberNode.h"
+#import "StringNode.h"
+#import "BooleanNode.h"
+#import "VariableNode.h"
+#import "FunctionNode.h"
 
 @implementation Node
 
--(id)init {
-	self = [super init];
-	if(self) {
-		// do stuff
-	}
-	return self;
++(Node* )functionNode:(NSString* )operation,... {
+	
 }
 
-+(Node* )node {
-	NSLog(@"return node");
-	return [[Node alloc] init];
++(Node* )numberNodeWithValue:(const char* )value {
+	
 }
 
-+(Node* )functionNode {
-	NSLog(@"return function");
-	return [[Node alloc] init];
++(Node* )stringNodeWithQuotedValue:(const char* )value {
+	
 }
 
-+(Node* )numberNode {
-	NSLog(@"return number");
-	return [[Node alloc] init];
++(Node* )booleanNodeWithValue:(BOOL)value {
+	
 }
 
-+(Node* )stringNode {
-	NSLog(@"return string");
-	return [[Node alloc] init];
-}
-
-+(Node* )booleanNode {
-	NSLog(@"return boolean");
-	return [[Node alloc] init];
-}
-
-+(Node* )identifierNode {
-	NSLog(@"return identifier");
-	return [[Node alloc] init];
++(Node* )variableNodeWithName:(const char* )name {
+	
 }
 
 -(NSObject* )evaluateWithDictionary:(NSDictionary* )theDictionary {
