@@ -35,28 +35,40 @@ NSMutableDictionary* _parsers = nil;
 	}
 }
 
--(void)parseInputStream:(NSInputStream* )stream {
+-(Node* )parseInputStream:(NSInputStream* )stream error:(NSError** )error {
 	NSParameterAssert(stream);
 	NSParameterAssert(_scanner);
 	NSParameterAssert(_stream==nil);
 	_stream = stream;
 	_scanner->result = nil;
-	int error = yyparse(_scanner);
-	if(error) {
-		NSLog(@"Parse result=%@, err=%d",_scanner->result,error);
+	if(error) (*error) = nil;
+	if(yyparse(_scanner)) {
+		// error
+		if(error) {
+			// set error message
+			NSString* description = [NSString stringWithFormat:@"Error at line %d: %s",(_scanner->error_line),(_scanner->error_text)];
+			(*error) = [NSError errorWithDomain:@"ParseError" code:-1 userInfo:[NSDictionary dictionaryWithObject:description forKey:NSLocalizedDescriptionKey]];
+		}
+		return nil;
 	} else {
-		NSLog(@"Parse result=%@",_scanner->result);		
+		return _scanner->result;
 	}
 }
 
--(void)parseString:(NSString* )expression {
+-(Node* )parseString:(NSString* )expression error:(NSError** )error {
 	NSParameterAssert(expression);
 	NSParameterAssert(_stream==nil);
 	NSData* data = [expression dataUsingEncoding:NSUTF8StringEncoding];
 	NSInputStream* stream = [NSInputStream inputStreamWithData:data];
 	[stream open];
-	[self parseInputStream:stream];
+	Node* parseTree = [self parseInputStream:stream error:error];
 	[stream close];
+	return parseTree;
+}
+
+-(NSObject* )evaluate:(Node* )parseTree error:(NSError** )error {
+	NSMutableDictionary* variables = [NSMutableDictionary dictionary];
+	return [parseTree evaluateWithDictionary:variables];
 }
 
 @end

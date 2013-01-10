@@ -111,9 +111,12 @@ EQUALS  [=]
 -(void)_initScanner {
 	yylex_init(&(_scanner->scanner));
 	yyset_extra(_scanner,_scanner->scanner);
+	_scanner->error_text = nil;
+	_scanner->error_line = -1;
 }
 
 -(void)_deallocScanner {
+	free((void* )_scanner->error_text);
 	yylex_destroy(_scanner->scanner);
 }
 
@@ -146,7 +149,8 @@ EQUALS  [=]
 }
 
 -(void)_raiseError:(const char* )error line:(int)lineno {
-	NSLog(@"Error at line %d: %s",lineno,error);
+	_scanner->error_text = strdup(error);
+	_scanner->error_line = lineno;
 }
 
 @end

@@ -13,7 +13,14 @@
 int main (int argc, const char * argv[]) {
 	@autoreleasepool {
 		ParserContext* parser = [[ParserContext alloc] init];
-		[parser parseString:@"'hello' AND (world + 42.3)"];
+		NSError* error = nil;
+		Node* node = [parser parseString:@"hello" error:&error];
+		if(node==nil) {
+			fprintf(stderr,"%s: %s",[[error domain] UTF8String],[[error localizedDescription] UTF8String]);
+		} else {
+			NSObject* obj = [parser evaluate:node error:&error];
+			NSLog(@"%@",obj);
+		}
 	}
 	return 0;
 }

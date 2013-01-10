@@ -64,6 +64,10 @@ expression : LEFT_PAREN expression RIGHT_PAREN {
 {
   $$ = [Node functionNode:@"EQUALS",$1,$3,nil];
 }
+| expression FUNCTION_ASSIGN expression
+{
+	$$ = [Node functionNode:@"ASSIGN",$1,$3,nil];
+}
 | expression FUNCTION_PLUS expression
 {
   $$ = [Node functionNode:@"PLUS",$1,$3,nil];
