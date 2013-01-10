@@ -33,7 +33,10 @@
 								 reason:[NSString stringWithFormat:@"Function not found: %@",[self name]]
 							   userInfo:nil] raise];
 	}
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 	return [self performSelector:theSelector withObject:theDictionary];
+#pragma clang diagnostic pop	
 }
 
 
