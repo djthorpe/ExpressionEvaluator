@@ -1,8 +1,8 @@
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "PTNode.h"
 
-@interface FunctionNode : Node {
+@interface FunctionNode : PTNode {
 	NSString* _name;
 	NSArray* _nodes;
 }

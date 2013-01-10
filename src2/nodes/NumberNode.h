@@ -1,8 +1,8 @@
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "PTNode.h"
 
-@interface NumberNode : Node {
+@interface NumberNode : PTNode {
   double _value;
 }
 

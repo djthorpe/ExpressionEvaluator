@@ -14,12 +14,13 @@
 		14DE06ED169505E10052F083 /* ExpressionLexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C3169504B30052F083 /* ExpressionLexer.lm */; };
 		14DE06EE169505E10052F083 /* ExpressionParser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C4169504B30052F083 /* ExpressionParser.ym */; };
 		14DE06EF169505E10052F083 /* TestApplication-main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06D0169504B30052F083 /* TestApplication-main.m */; };
-		6E283FA5169D64B5004A1978 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA4169D64B5004A1978 /* Node.m */; };
+		6E283FA5169D64B5004A1978 /* PTNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA4169D64B5004A1978 /* PTNode.m */; };
 		6E283FAF169D6565004A1978 /* VariableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAA169D6565004A1978 /* VariableNode.m */; };
 		6E283FB0169D6565004A1978 /* NumberNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAC169D6565004A1978 /* NumberNode.m */; };
 		6E283FB2169D681D004A1978 /* BooleanNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA7169D64EF004A1978 /* BooleanNode.m */; };
 		6E283FB3169D6E7B004A1978 /* StringNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAE169D6565004A1978 /* StringNode.m */; };
 		6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
+		6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
 		6EFD62B6169B664A00B9EDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		6EFD62C1169B665700B9EDA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62AF169B65FC00B9EDA2 /* main.m */; };
 		6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C2169B678C00B9EDA2 /* lexer.lm */; };
@@ -59,8 +60,8 @@
 		14DE06D6169505C80052F083 /* ArrayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayNode.h; sourceTree = "<group>"; };
 		14DE06D7169505C80052F083 /* ArrayNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayNode.m; sourceTree = "<group>"; };
 		6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		6E283FA3169D64B5004A1978 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
-		6E283FA4169D64B5004A1978 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		6E283FA3169D64B5004A1978 /* PTNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTNode.h; sourceTree = "<group>"; };
+		6E283FA4169D64B5004A1978 /* PTNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTNode.m; sourceTree = "<group>"; };
 		6E283FA6169D64EF004A1978 /* BooleanNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanNode.h; sourceTree = "<group>"; };
 		6E283FA7169D64EF004A1978 /* BooleanNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanNode.m; sourceTree = "<group>"; };
 		6E283FA9169D6565004A1978 /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableNode.h; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		6E283FB4169D70EA004A1978 /* FunctionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionNode.h; sourceTree = "<group>"; };
 		6E283FB5169D70EA004A1978 /* FunctionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionNode.m; sourceTree = "<group>"; };
 		6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParserContext+Bison.h"; sourceTree = "<group>"; };
+		6E997689169F566F003980CA /* ParserContext+Bison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ParserContext+Bison.m"; sourceTree = "<group>"; };
 		6EFD62AF169B65FC00B9EDA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD62C2169B678C00B9EDA2 /* lexer.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = lexer.lm; sourceTree = "<group>"; };
@@ -189,8 +191,8 @@
 				6E283FA7169D64EF004A1978 /* BooleanNode.m */,
 				6E283FAD169D6565004A1978 /* StringNode.h */,
 				6E283FAE169D6565004A1978 /* StringNode.m */,
-				6E283FA3169D64B5004A1978 /* Node.h */,
-				6E283FA4169D64B5004A1978 /* Node.m */,
+				6E283FA3169D64B5004A1978 /* PTNode.h */,
+				6E283FA4169D64B5004A1978 /* PTNode.m */,
 			);
 			path = nodes;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 				6EFD62C7169B6D0000B9EDA2 /* parser.ym */,
 				6EFD62C4169B687600B9EDA2 /* ParserContext.h */,
 				6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */,
+				6E997689169F566F003980CA /* ParserContext+Bison.m */,
 				6EFD62C5169B687600B9EDA2 /* ParserContext.m */,
 			);
 			path = src2;
@@ -303,12 +306,13 @@
 				6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */,
 				6EFD62C6169B687600B9EDA2 /* ParserContext.m in Sources */,
 				6EFD62C8169B6D0000B9EDA2 /* parser.ym in Sources */,
-				6E283FA5169D64B5004A1978 /* Node.m in Sources */,
+				6E283FA5169D64B5004A1978 /* PTNode.m in Sources */,
 				6E283FAF169D6565004A1978 /* VariableNode.m in Sources */,
 				6E283FB0169D6565004A1978 /* NumberNode.m in Sources */,
 				6E283FB2169D681D004A1978 /* BooleanNode.m in Sources */,
 				6E283FB3169D6E7B004A1978 /* StringNode.m in Sources */,
 				6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */,
+				6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

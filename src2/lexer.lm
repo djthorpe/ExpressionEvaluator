@@ -5,9 +5,8 @@
 %option yylineno
 
 %{
-#import "ParserContext.h"
 #import "ParserContext+Bison.h"
-#import "Node.h"
+#import "PTNode.h"
 #import "y.tab.h"
 #define YY_USER_ACTION yylloc->first_line = yylineno;
 #define YY_EXTRA_TYPE ParserCtx*
@@ -55,27 +54,27 @@ EQUALS  [=]
 }
 
 {TRUE} {
-	yylval->node = [Node booleanNodeWithValue:YES];
+	yylval->node = [PTNode booleanNodeWithValue:YES];
 	return VALUE_BOOL;
 }
 
 {FALSE} {
-	yylval->node = [Node booleanNodeWithValue:NO];
+	yylval->node = [PTNode booleanNodeWithValue:NO];
 	return VALUE_BOOL;
 }
 
 {DIGIT}*("."{DIGIT}*)?{EX}? {
-	yylval->node = [Node numberNodeWithValue:yytext];
+	yylval->node = [PTNode numberNodeWithValue:yytext];
 	return VALUE_NUMBER;
 }
 
 \'(\\.|[^\\'])*\' {
-	yylval->node = [Node stringNodeWithQValue:yytext];
+	yylval->node = [PTNode stringNodeWithQValue:yytext];
 	return VALUE_STRING;
 }
 
 \"(\\.|[^\\"])*\" {
-	yylval->node = [Node stringNodeWithQValue:yytext];
+	yylval->node = [PTNode stringNodeWithQValue:yytext];
 	return VALUE_STRING;
 }
 
@@ -100,7 +99,7 @@ EQUALS  [=]
 }
 
 {ID} {
-	yylval->node = [Node variableNodeWithName:yytext];
+	yylval->node = [PTNode variableNodeWithName:yytext];
 	return VARIABLE;
 }
 
@@ -113,53 +112,4 @@ EQUALS  [=]
 }
 
 %%
-
-@implementation ParserContext (Bison)
-
--(void)_initScanner {
-	yylex_init(&(_scanner->scanner));
-	yyset_extra(_scanner,_scanner->scanner);
-	_scanner->error_text = nil;
-	_scanner->error_line = -1;
-}
-
--(void)_deallocScanner {
-	free((void* )_scanner->error_text);
-	yylex_destroy(_scanner->scanner);
-}
-
--(int)_inputToBuffer:(char* )buffer maxBytesToRead:(size_t)maxBytesToRead {
-	NSParameterAssert(_stream);
-	if([_stream streamStatus]==NSStreamStatusAtEnd) {
-		return YY_NULL;
-	}
-	if([_stream streamStatus]==NSStreamStatusClosed) {
-		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusClosed");
-		return YY_NULL;
-	}
-	if([_stream streamStatus]==NSStreamStatusError) {
-		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusError");
-		return YY_NULL;
-	}
-	if([_stream streamStatus]==NSStreamStatusNotOpen) {
-		NSLog(@"_inputToBuffer: Unexpected state: NSStreamStatusNotOpen");
-		return YY_NULL;
-	}
-	NSInteger bytesRead = [_stream read:(uint8_t* )buffer maxLength:(NSUInteger)maxBytesToRead];
-	if(bytesRead==0) {
-		return YY_NULL;
-	}
-	if(bytesRead < 0) {
-		NSLog(@"_inputToBuffer: read operation failed");
-		return YY_NULL;
-	}
-	return (int)bytesRead;
-}
-
--(void)_raiseError:(const char* )error line:(int)lineno {
-	_scanner->error_text = strdup(error);
-	_scanner->error_line = lineno;
-}
-
-@end
 

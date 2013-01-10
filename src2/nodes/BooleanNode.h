@@ -1,8 +1,8 @@
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "PTNode.h"
 
-@interface BooleanNode : Node {
+@interface BooleanNode : PTNode {
   BOOL _value;
 }
 

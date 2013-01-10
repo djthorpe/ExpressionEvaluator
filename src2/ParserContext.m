@@ -1,6 +1,7 @@
 
 #import "ParserContext.h"
 #import "ParserContext+Bison.h"
+#import "PTNode.h"
 
 @implementation ParserContext
 
@@ -35,7 +36,7 @@ NSMutableDictionary* _parsers = nil;
 	}
 }
 
--(Node* )parseInputStream:(NSInputStream* )stream error:(NSError** )error {
+-(PTNode* )parseInputStream:(NSInputStream* )stream error:(NSError** )error {
 	NSParameterAssert(stream);
 	NSParameterAssert(_scanner);
 	NSParameterAssert(_stream==nil);
@@ -55,20 +56,29 @@ NSMutableDictionary* _parsers = nil;
 	}
 }
 
--(Node* )parseString:(NSString* )expression error:(NSError** )error {
+-(PTNode* )parseString:(NSString* )expression error:(NSError** )error {
 	NSParameterAssert(expression);
 	NSParameterAssert(_stream==nil);
 	NSData* data = [expression dataUsingEncoding:NSUTF8StringEncoding];
 	NSInputStream* stream = [NSInputStream inputStreamWithData:data];
 	[stream open];
-	Node* parseTree = [self parseInputStream:stream error:error];
+	PTNode* parseTree = [self parseInputStream:stream error:error];
 	[stream close];
 	return parseTree;
 }
 
--(NSObject* )evaluate:(Node* )parseTree error:(NSError** )error {
+-(NSObject* )evaluate:(PTNode* )parseTree error:(NSError** )error {
 	NSMutableDictionary* variables = [NSMutableDictionary dictionary];
-	return [parseTree evaluateWithDictionary:variables];
+	NSObject* obj = nil;
+	@try {
+		obj = [parseTree evaluateWithDictionary:variables];
+	} @catch(NSException* e) {
+		if(error) {
+			// set error message
+			(*error) = [NSError errorWithDomain:@"ParseError" code:-1 userInfo:[NSDictionary dictionaryWithObject:[e description] forKey:NSLocalizedDescriptionKey]];
+		}
+	}	
+	return obj;
 }
 
 @end

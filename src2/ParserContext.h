@@ -1,12 +1,12 @@
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "PTNode.h"
 
 @class ParserContext;
 
 typedef struct {
 	void* scanner;
-	__unsafe_unretained Node* result;
+	__unsafe_unretained PTNode* result;
 	const char* error_text;
 	int error_line;
 } ParserCtx;
@@ -19,8 +19,8 @@ ParserContext* yy_get_parser(ParserCtx* context);
 }
 
 +(ParserContext* )parserForContext:(ParserCtx* )context;
--(Node* )parseString:(NSString* )expression error:(NSError** )error;
--(Node* )parseInputStream:(NSInputStream* )stream error:(NSError** )error;
--(NSObject* )evaluate:(Node* )parseTree error:(NSError** )error;
+-(PTNode* )parseString:(NSString* )expression error:(NSError** )error;
+-(PTNode* )parseInputStream:(NSInputStream* )stream error:(NSError** )error;
+-(NSObject* )evaluate:(PTNode* )parseTree error:(NSError** )error;
 
 @end

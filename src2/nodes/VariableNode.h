@@ -1,8 +1,8 @@
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "PTNode.h"
 
-@interface VariableNode : Node {
+@interface VariableNode : PTNode {
 	NSString* _name;
 }
 
