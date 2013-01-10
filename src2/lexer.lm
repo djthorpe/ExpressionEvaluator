@@ -104,6 +104,14 @@ EQUALS  [=]
 	return VARIABLE;
 }
 
+{WSP} {
+	/* ignore */
+}
+
+. {
+	return ERR;
+}
+
 %%
 
 @implementation ParserContext (Bison)
