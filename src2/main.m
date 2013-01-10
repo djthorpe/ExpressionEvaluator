@@ -15,7 +15,7 @@ int main (int argc, const char * argv[]) {
 		ParserContext* parser = [[ParserContext alloc] init];
 		NSError* error = nil;
 		// create the parse tree
-		PTNode* node = [parser parseString:@"42 + 23" error:&error];
+		PTNode* node = [parser parseString:@"61 = (5 + 56)" error:&error];
 		if(node==nil) {
 			fprintf(stderr,"%s: %s",[[error domain] UTF8String],[[error localizedDescription] UTF8String]);
 		} else {
