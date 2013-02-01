@@ -1,0 +1,115 @@
+%option reentrant
+%option bison-bridge
+%option bison-locations
+%option noyywrap
+%option yylineno
+
+%{
+#import "ParserContext+Bison.h"
+#import "PTNode.h"
+#import "y.tab.h"
+#define YY_USER_ACTION yylloc->first_line = yylineno;
+#define YY_EXTRA_TYPE ParserCtx*
+	
+#define YY_INPUT(buf,bytes_read,max_size)                                \
+	{                                                                    \
+	    ParserContext* p = [ParserContext parserForContext:yyextra];     \
+	    if(p) {                                                          \
+	        bytes_read = [p _inputToBuffer:buf maxBytesToRead:max_size]; \
+        } else {                                                         \
+            bytes_read = YY_NULL;                                        \
+        }                                                                \
+	}
+%}
+
+PM      [+-]
+DIGIT   [0-9]
+EX	    [Ee]{PM}?{DIGIT}+
+ID	    [A-Za-z_][A-Za-z0-9_]*
+TRUE	[Tt][Rr][Uu][Ee]
+FALSE	[Ff][Aa][Ll][Ss][Ee]
+WSP	    [ \t\r\n]
+AND	    [Aa][Nn][Dd]
+OR	    [Oo][Rr]
+NOT	    [Nn][Oo][Tt]
+COLON   [\:]
+EQUALS  [=]
+
+%%
+
+\( {
+	return LEFT_PAREN; 
+}
+
+\) {
+	return RIGHT_PAREN;
+}
+
+\+ {
+	return FUNCTION_PLUS;
+}
+
+\- {
+	return FUNCTION_MINUS;
+}
+
+{TRUE} {
+	yylval->node = [PTNode booleanNodeWithValue:YES];
+	return VALUE_BOOL;
+}
+
+{FALSE} {
+	yylval->node = [PTNode booleanNodeWithValue:NO];
+	return VALUE_BOOL;
+}
+
+{DIGIT}*("."{DIGIT}*)?{EX}? {
+	yylval->node = [PTNode numberNodeWithValue:yytext];
+	return VALUE_NUMBER;
+}
+
+\'(\\.|[^\\'])*\' {
+	yylval->node = [PTNode stringNodeWithQValue:yytext];
+	return VALUE_STRING;
+}
+
+\"(\\.|[^\\"])*\" {
+	yylval->node = [PTNode stringNodeWithQValue:yytext];
+	return VALUE_STRING;
+}
+
+{AND} {
+	return FUNCTION_AND; 
+}
+
+{OR} { 
+	return FUNCTION_OR;
+}
+
+{NOT} {
+	return FUNCTION_NOT;
+}
+
+{EQUALS} {
+	return FUNCTION_EQUALS;
+}
+
+{COLON}{EQUALS} {
+	return FUNCTION_ASSIGN;
+}
+
+{ID} {
+	yylval->node = [PTNode variableNodeWithName:yytext];
+	return VARIABLE;
+}
+
+{WSP} {
+	/* ignore */
+}
+
+. {
+	return ERR;
+}
+
+%%
+
