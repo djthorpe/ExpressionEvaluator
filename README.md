@@ -3,6 +3,8 @@ ExpressionEvaluator
 
 Using Lex and Yacc with Objective-C
 
+![Logo](https://raw.github.com/djthorpe/ExpressionEvaluator/master/screenshot.png)
+
 Lex and Yacc are tools which allow you to create text scanners and parsers. If you're looking
 to develop a calculator, compiler or anything which needs to decompose a series of text
 statements into something a computer can understand, you can use Lex and Yacc to do this.
