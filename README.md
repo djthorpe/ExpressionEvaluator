@@ -60,6 +60,10 @@ To actually execute the expression, use the following `ParserContext` method:
 @end
 ```
 
+Again, this method will return `nil` when there is error actually executing the parse tree.
+You can optionally provide an `NSError` pointer which can return an `NSError` object giving further information
+on the error condition.
+
 Each Node subclass will need to implement this abstract method. The method should return an
 NSObject (which will likely be an NSNumber or NSString).
 

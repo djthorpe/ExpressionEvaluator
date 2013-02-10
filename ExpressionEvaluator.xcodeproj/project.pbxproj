@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		14DE069E169504680052F083 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */; };
-		14DE06E4169505C80052F083 /* ArrayNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06D7169505C80052F083 /* ArrayNode.m */; };
-		14DE06EB169505D70052F083 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C0169504B30052F083 /* Controller.m */; };
-		14DE06EC169505DB0052F083 /* ExpressionEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C2169504B30052F083 /* ExpressionEvaluator.m */; };
-		14DE06ED169505E10052F083 /* ExpressionLexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C3169504B30052F083 /* ExpressionLexer.lm */; };
-		14DE06EE169505E10052F083 /* ExpressionParser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06C4169504B30052F083 /* ExpressionParser.ym */; };
-		14DE06EF169505E10052F083 /* TestApplication-main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE06D0169504B30052F083 /* TestApplication-main.m */; };
 		6E283FA5169D64B5004A1978 /* PTNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA4169D64B5004A1978 /* PTNode.m */; };
 		6E283FAF169D6565004A1978 /* VariableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAA169D6565004A1978 /* VariableNode.m */; };
 		6E283FB0169D6565004A1978 /* NumberNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAC169D6565004A1978 /* NumberNode.m */; };
 		6E283FB2169D681D004A1978 /* BooleanNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA7169D64EF004A1978 /* BooleanNode.m */; };
 		6E283FB3169D6E7B004A1978 /* StringNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAE169D6565004A1978 /* StringNode.m */; };
 		6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
+		6E557C4116C7F9C4005EFB1B /* CocoaEvaluator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */; };
+		6E557C5416C7FB0E005EFB1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C4416C7FAF0005EFB1B /* main.m */; };
+		6E557C5516C7FB13005EFB1B /* FoundationEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */; };
+		6E557C5616C7FB2A005EFB1B /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
+		6E557C5716C7FB2A005EFB1B /* VariableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAA169D6565004A1978 /* VariableNode.m */; };
+		6E557C5816C7FB2A005EFB1B /* NumberNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAC169D6565004A1978 /* NumberNode.m */; };
+		6E557C5916C7FB2A005EFB1B /* BooleanNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA7169D64EF004A1978 /* BooleanNode.m */; };
+		6E557C5A16C7FB2A005EFB1B /* StringNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAE169D6565004A1978 /* StringNode.m */; };
+		6E557C5B16C7FB2A005EFB1B /* PTNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA4169D64B5004A1978 /* PTNode.m */; };
+		6E557C5C16C7FB35005EFB1B /* lexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C2169B678C00B9EDA2 /* lexer.lm */; };
+		6E557C5D16C7FB35005EFB1B /* parser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C7169B6D0000B9EDA2 /* parser.ym */; };
+		6E557C5E16C7FB3C005EFB1B /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
+		6E557C5F16C7FB3C005EFB1B /* ParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C5169B687600B9EDA2 /* ParserContext.m */; };
 		6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
 		6EFD62B6169B664A00B9EDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		6EFD62C1169B665700B9EDA2 /* FoundationEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */; };
 		6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C2169B678C00B9EDA2 /* lexer.lm */; };
 		6EFD62C6169B687600B9EDA2 /* ParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C5169B687600B9EDA2 /* ParserContext.m */; };
 		6EFD62C8169B6D0000B9EDA2 /* parser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C7169B6D0000B9EDA2 /* parser.ym */; };
@@ -42,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		14DE069C169504680052F083 /* ExpressionEvaluator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpressionEvaluator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14DE069C169504680052F083 /* CocoaEvaluator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaEvaluator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DE06A0169504680052F083 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		14DE06A1169504680052F083 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		14DE06A2169504680052F083 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,7 +62,6 @@
 		14DE06D0169504B30052F083 /* TestApplication-main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TestApplication-main.m"; sourceTree = "<group>"; };
 		14DE06D2169504B30052F083 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
 		14DE06D3169504B30052F083 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		14DE06D4169505060052F083 /* ExpressionEvaluator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExpressionEvaluator.plist; sourceTree = "<group>"; };
 		14DE06D6169505C80052F083 /* ArrayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayNode.h; sourceTree = "<group>"; };
 		14DE06D7169505C80052F083 /* ArrayNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayNode.m; sourceTree = "<group>"; };
 		6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -72,9 +77,12 @@
 		6E283FAE169D6565004A1978 /* StringNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringNode.m; sourceTree = "<group>"; };
 		6E283FB4169D70EA004A1978 /* FunctionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionNode.h; sourceTree = "<group>"; };
 		6E283FB5169D70EA004A1978 /* FunctionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionNode.m; sourceTree = "<group>"; };
+		6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocoaEvaluator.xib; sourceTree = "<group>"; };
+		6E557C4316C7FAF0005EFB1B /* ExpressionEvaluator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExpressionEvaluator.plist; sourceTree = "<group>"; };
+		6E557C4416C7FAF0005EFB1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationEvaluator.m; sourceTree = "<group>"; };
 		6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParserContext+Bison.h"; sourceTree = "<group>"; };
 		6E997689169F566F003980CA /* ParserContext+Bison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ParserContext+Bison.m"; sourceTree = "<group>"; };
-		6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationEvaluator.m; sourceTree = "<group>"; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD62C2169B678C00B9EDA2 /* lexer.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = lexer.lm; sourceTree = "<group>"; };
 		6EFD62C4169B687600B9EDA2 /* ParserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserContext.h; sourceTree = "<group>"; };
@@ -105,7 +113,6 @@
 		08FB7794FE84155DC02AAC07 /* ExpressionEvaluator */ = {
 			isa = PBXGroup;
 			children = (
-				14DE06D4169505060052F083 /* ExpressionEvaluator.plist */,
 				14DE06B8169504B30052F083 /* resources */,
 				6EFD62AD169B650100B9EDA2 /* src2 */,
 				14DE06BA169504B30052F083 /* src */,
@@ -141,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				14DE06B9169504B30052F083 /* ExpressionEvaluator.nib */,
+				6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -172,7 +180,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14DE069C169504680052F083 /* ExpressionEvaluator.app */,
+				14DE069C169504680052F083 /* CocoaEvaluator.app */,
 				6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */,
 			);
 			name = Products;
@@ -181,27 +189,45 @@
 		6E283FA2169D64B5004A1978 /* nodes */ = {
 			isa = PBXGroup;
 			children = (
-				6E283FB4169D70EA004A1978 /* FunctionNode.h */,
 				6E283FB5169D70EA004A1978 /* FunctionNode.m */,
-				6E283FA9169D6565004A1978 /* VariableNode.h */,
 				6E283FAA169D6565004A1978 /* VariableNode.m */,
-				6E283FAB169D6565004A1978 /* NumberNode.h */,
 				6E283FAC169D6565004A1978 /* NumberNode.m */,
-				6E283FA6169D64EF004A1978 /* BooleanNode.h */,
 				6E283FA7169D64EF004A1978 /* BooleanNode.m */,
-				6E283FAD169D6565004A1978 /* StringNode.h */,
 				6E283FAE169D6565004A1978 /* StringNode.m */,
-				6E283FA3169D64B5004A1978 /* PTNode.h */,
 				6E283FA4169D64B5004A1978 /* PTNode.m */,
+				6E283FA3169D64B5004A1978 /* PTNode.h */,
+				6E283FB4169D70EA004A1978 /* FunctionNode.h */,
+				6E283FA9169D6565004A1978 /* VariableNode.h */,
+				6E283FAB169D6565004A1978 /* NumberNode.h */,
+				6E283FA6169D64EF004A1978 /* BooleanNode.h */,
+				6E283FAD169D6565004A1978 /* StringNode.h */,
 			);
 			path = nodes;
+			sourceTree = "<group>";
+		};
+		6E557C4216C7FAF0005EFB1B /* cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				6E557C4316C7FAF0005EFB1B /* ExpressionEvaluator.plist */,
+				6E557C4416C7FAF0005EFB1B /* main.m */,
+			);
+			path = cocoa;
+			sourceTree = "<group>";
+		};
+		6E557C5216C7FB00005EFB1B /* foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */,
+			);
+			path = foundation;
 			sourceTree = "<group>";
 		};
 		6EFD62AD169B650100B9EDA2 /* src2 */ = {
 			isa = PBXGroup;
 			children = (
+				6E557C5216C7FB00005EFB1B /* foundation */,
+				6E557C4216C7FAF0005EFB1B /* cocoa */,
 				6E283FA2169D64B5004A1978 /* nodes */,
-				6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */,
 				6EFD62C2169B678C00B9EDA2 /* lexer.lm */,
 				6EFD62C7169B6D0000B9EDA2 /* parser.ym */,
 				6EFD62C4169B687600B9EDA2 /* ParserContext.h */,
@@ -215,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14DE069B169504680052F083 /* ExpressionEvaluator */ = {
+		14DE069B169504680052F083 /* CocoaEvaluator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "ExpressionEvaluator" */;
+			buildConfigurationList = 14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "CocoaEvaluator" */;
 			buildPhases = (
 				14DE0698169504680052F083 /* Sources */,
 				14DE0699169504680052F083 /* Frameworks */,
@@ -227,9 +253,9 @@
 			);
 			dependencies = (
 			);
-			name = ExpressionEvaluator;
+			name = CocoaEvaluator;
 			productName = ExpressionEvaluator;
-			productReference = 14DE069C169504680052F083 /* ExpressionEvaluator.app */;
+			productReference = 14DE069C169504680052F083 /* CocoaEvaluator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6EFD62B3169B664A00B9EDA2 /* FoundationEvaluator */ = {
@@ -268,7 +294,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14DE069B169504680052F083 /* ExpressionEvaluator */,
+				14DE069B169504680052F083 /* CocoaEvaluator */,
 				6EFD62B3169B664A00B9EDA2 /* FoundationEvaluator */,
 			);
 		};
@@ -279,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E557C4116C7F9C4005EFB1B /* CocoaEvaluator.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DE06E4169505C80052F083 /* ArrayNode.m in Sources */,
-				14DE06EB169505D70052F083 /* Controller.m in Sources */,
-				14DE06EC169505DB0052F083 /* ExpressionEvaluator.m in Sources */,
-				14DE06ED169505E10052F083 /* ExpressionLexer.lm in Sources */,
-				14DE06EE169505E10052F083 /* ExpressionParser.ym in Sources */,
-				14DE06EF169505E10052F083 /* TestApplication-main.m in Sources */,
+				6E557C5416C7FB0E005EFB1B /* main.m in Sources */,
+				6E557C5616C7FB2A005EFB1B /* FunctionNode.m in Sources */,
+				6E557C5716C7FB2A005EFB1B /* VariableNode.m in Sources */,
+				6E557C5816C7FB2A005EFB1B /* NumberNode.m in Sources */,
+				6E557C5916C7FB2A005EFB1B /* BooleanNode.m in Sources */,
+				6E557C5A16C7FB2A005EFB1B /* StringNode.m in Sources */,
+				6E557C5B16C7FB2A005EFB1B /* PTNode.m in Sources */,
+				6E557C5C16C7FB35005EFB1B /* lexer.lm in Sources */,
+				6E557C5D16C7FB35005EFB1B /* parser.ym in Sources */,
+				6E557C5E16C7FB3C005EFB1B /* ParserContext+Bison.m in Sources */,
+				6E557C5F16C7FB3C005EFB1B /* ParserContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EFD62C1169B665700B9EDA2 /* FoundationEvaluator.m in Sources */,
 				6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */,
 				6EFD62C6169B687600B9EDA2 /* ParserContext.m in Sources */,
 				6EFD62C8169B6D0000B9EDA2 /* parser.ym in Sources */,
@@ -313,6 +344,7 @@
 				6E283FB3169D6E7B004A1978 /* StringNode.m in Sources */,
 				6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */,
 				6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */,
+				6E557C5516C7FB13005EFB1B /* FoundationEvaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +376,7 @@
 				INFOPLIST_FILE = ExpressionEvaluator.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -368,7 +400,7 @@
 				INFOPLIST_FILE = ExpressionEvaluator.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -445,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "ExpressionEvaluator" */ = {
+		14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "CocoaEvaluator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14DE06B6169504680052F083 /* Debug */,
