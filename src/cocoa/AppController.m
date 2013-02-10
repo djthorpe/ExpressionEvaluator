@@ -73,7 +73,6 @@
 -(IBAction)ibEvaluateExpression:(id)sender {
 	NSError* error = nil;
 
-	[self outputLine:@"\n" withColor:[NSColor grayColor]];
 	[self outputLine:[self expression] withColor:[NSColor grayColor]];
 	
 	PTNode* node = [[self parser] parseString:[self expression] error:&error];

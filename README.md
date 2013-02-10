@@ -17,7 +17,7 @@ be able to parse more complex things then the Lex and Yacc combination is a good
 be used directly within XCode. There's plenty of documentation available on making the rules,
 which I won't cover here. But I will cover how it works with Objective-C.
 
-I firstly define a `PTNode` class (see the `src2/nodes` folder)
+I firstly define a `PTNode` class (see the `src/nodes` folder)
 which is the superclass of a number of node implementations. There are a number of
 `PTNode` class methods to create instances of the node implementations:
 
