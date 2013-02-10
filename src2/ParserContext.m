@@ -7,6 +7,8 @@
 
 NSMutableDictionary* _parsers = nil;
 
+////////////////////////////////////////////////////////////////////////////////
+
 +(void)initialize {
 	_parsers = [NSMutableDictionary dictionary];
 }
@@ -21,6 +23,7 @@ NSMutableDictionary* _parsers = nil;
 		_scanner = (ParserCtx* )malloc(sizeof(ParserCtx));
 		NSParameterAssert(_scanner);
 		_stream = nil;
+		_variables = [NSMutableDictionary dictionary];
 		[self _initScanner];
 		[_parsers setObject:self forKey:[NSValue valueWithPointer:_scanner]];
 	}
@@ -34,7 +37,37 @@ NSMutableDictionary* _parsers = nil;
 		free(_scanner);
 		_scanner = nil;
 	}
+	_variables = nil;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+@synthesize stream = _stream;
+@synthesize variables = _variables;
+
+////////////////////////////////////////////////////////////////////////////////
+// get and set variables
+
+-(void)setValue:(id)value forKey:(NSString *)key {
+	NSParameterAssert(key && [key length]);
+	// value can be NSNumber, NSString or nil 
+	NSParameterAssert(value==nil || [value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]);
+
+	// add or remove value
+	if(value==nil) {
+		// remove value from the dictionary
+		[_variables removeObjectForKey:key];
+	} else {
+		[_variables setObject:value forKey:key];
+	}
+}
+
+-(id)valueForKey:(NSString *)key {
+	NSParameterAssert(key && [key length]);
+	return [_variables objectForKey:key];
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 -(PTNode* )parseInputStream:(NSInputStream* )stream error:(NSError** )error {
 	NSParameterAssert(stream);
@@ -68,10 +101,9 @@ NSMutableDictionary* _parsers = nil;
 }
 
 -(NSObject* )evaluate:(PTNode* )parseTree error:(NSError** )error {
-	NSMutableDictionary* variables = [NSMutableDictionary dictionary];
 	NSObject* obj = nil;
 	@try {
-		obj = [parseTree evaluateWithDictionary:variables];
+		obj = [parseTree evaluateWithDictionary:[self variables]];
 	} @catch(NSException* e) {
 		if(error) {
 			// set error message
