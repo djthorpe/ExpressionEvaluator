@@ -97,6 +97,7 @@ NSMutableDictionary* _parsers = nil;
 	[stream open];
 	PTNode* parseTree = [self parseInputStream:stream error:error];
 	[stream close];
+	_stream=nil;
 	return parseTree;
 }
 

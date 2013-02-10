@@ -14,7 +14,6 @@
 		6E283FB2169D681D004A1978 /* BooleanNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FA7169D64EF004A1978 /* BooleanNode.m */; };
 		6E283FB3169D6E7B004A1978 /* StringNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FAE169D6565004A1978 /* StringNode.m */; };
 		6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
-		6E557C4116C7F9C4005EFB1B /* CocoaEvaluator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */; };
 		6E557C5416C7FB0E005EFB1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C4416C7FAF0005EFB1B /* main.m */; };
 		6E557C5516C7FB13005EFB1B /* FoundationEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */; };
 		6E557C5616C7FB2A005EFB1B /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
@@ -28,6 +27,7 @@
 		6E557C5E16C7FB3C005EFB1B /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
 		6E557C5F16C7FB3C005EFB1B /* ParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C5169B687600B9EDA2 /* ParserContext.m */; };
 		6E557C6216C7FBD3005EFB1B /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C6116C7FBD3005EFB1B /* AppController.m */; };
+		6E557C6616C7FDCB005EFB1B /* CocoaEvaluator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E557C6516C7FC46005EFB1B /* CocoaEvaluator.xib */; };
 		6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
 		6EFD62B6169B664A00B9EDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C2169B678C00B9EDA2 /* lexer.lm */; };
@@ -68,12 +68,12 @@
 		6E283FAE169D6565004A1978 /* StringNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringNode.m; sourceTree = "<group>"; };
 		6E283FB4169D70EA004A1978 /* FunctionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionNode.h; sourceTree = "<group>"; };
 		6E283FB5169D70EA004A1978 /* FunctionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionNode.m; sourceTree = "<group>"; };
-		6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CocoaEvaluator.xib; sourceTree = "<group>"; };
-		6E557C4316C7FAF0005EFB1B /* ExpressionEvaluator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExpressionEvaluator.plist; sourceTree = "<group>"; };
 		6E557C4416C7FAF0005EFB1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationEvaluator.m; sourceTree = "<group>"; };
 		6E557C6016C7FBD3005EFB1B /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		6E557C6116C7FBD3005EFB1B /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		6E557C6416C7FC46005EFB1B /* CocoaEvaluator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CocoaEvaluator.plist; sourceTree = "<group>"; };
+		6E557C6516C7FC46005EFB1B /* CocoaEvaluator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CocoaEvaluator.xib; sourceTree = "<group>"; };
 		6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParserContext+Bison.h"; sourceTree = "<group>"; };
 		6E997689169F566F003980CA /* ParserContext+Bison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ParserContext+Bison.m"; sourceTree = "<group>"; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +106,6 @@
 		08FB7794FE84155DC02AAC07 /* ExpressionEvaluator */ = {
 			isa = PBXGroup;
 			children = (
-				14DE06B8169504B30052F083 /* resources */,
 				6EFD62AD169B650100B9EDA2 /* src2 */,
 				14DE06D2169504B30052F083 /* LICENSE.md */,
 				14DE06D3169504B30052F083 /* README.md */,
@@ -134,14 +133,6 @@
 				14DE06A2169504680052F083 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		14DE06B8169504B30052F083 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				6E557C4016C7F9C4005EFB1B /* CocoaEvaluator.xib */,
-			);
-			path = resources;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
@@ -175,7 +166,7 @@
 		6E557C4216C7FAF0005EFB1B /* cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				6E557C4316C7FAF0005EFB1B /* ExpressionEvaluator.plist */,
+				6E557C6316C7FC46005EFB1B /* resources */,
 				6E557C4416C7FAF0005EFB1B /* main.m */,
 				6E557C6016C7FBD3005EFB1B /* AppController.h */,
 				6E557C6116C7FBD3005EFB1B /* AppController.m */,
@@ -189,6 +180,15 @@
 				6E557C5316C7FB00005EFB1B /* FoundationEvaluator.m */,
 			);
 			path = foundation;
+			sourceTree = "<group>";
+		};
+		6E557C6316C7FC46005EFB1B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E557C6416C7FC46005EFB1B /* CocoaEvaluator.plist */,
+				6E557C6516C7FC46005EFB1B /* CocoaEvaluator.xib */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		6EFD62AD169B650100B9EDA2 /* src2 */ = {
@@ -274,7 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E557C4116C7F9C4005EFB1B /* CocoaEvaluator.xib in Resources */,
+				6E557C6616C7FDCB005EFB1B /* CocoaEvaluator.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +343,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = ExpressionEvaluator.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/src2/cocoa/resources/CocoaEvaluator.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -367,7 +367,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = ExpressionEvaluator.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/src2/cocoa/resources/CocoaEvaluator.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;

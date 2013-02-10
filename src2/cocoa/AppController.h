@@ -6,8 +6,21 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-@interface AppController : NSObject
+#import "ParserContext.h"
+
+@interface AppController : NSObject {
+	ParserContext* _parser;
+	NSString* _expression;
+}
+
+@property (readonly) ParserContext* parser;
+@property (readonly) NSDictionary* variables;
+@property NSString* expression;
+@property IBOutlet NSTextView* ibTextView;
+
+// IBActions
+-(IBAction)ibEvaluateExpression:(id)sender;
 
 @end
