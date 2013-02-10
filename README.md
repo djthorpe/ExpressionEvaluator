@@ -15,65 +15,50 @@ statements into something a computer can understand, you can use Lex and Yacc to
 If you simply want a Lexical analyser, the `NSScanner` class could be used. But if you want to
 be able to parse more complex things then the Lex and Yacc combination is a good choice and can
 be used directly within XCode. There's plenty of documentation available on making the rules,
-which I won't cover here. But I will cover how it works with Objective-C. There is also an
-O'Reilly book called "Building Cocoa Applications" (BookBuildingCocoaApplications) which
-describes how to create a calculator parser, but they completely chicken out of integrating it
-directly into Objective C for some reason, and pipe the input and output through to a C program
-instead.
+which I won't cover here. But I will cover how it works with Objective-C.
 
-I firstly define a "Node" class which is the superclass of the following kinds of node:
-StringNode, BooleanNode, NumberNode, IdentifierNode, FunctionNode and ArrayNode. Each of these
-has a class method to create an autoreleased class instance:
+I firstly define a "PTNode" class (see the ```src2/nodes`` folder)
+which is the superclass of a number of node implementations. There are a number of
+PTNode class methods to create instances of the node implementations:
 
-```objc +(StringNode )stringWithQuotedCString:(const char )cString; +(BooleanNode )trueNode;
-+(BooleanNode )falseNode; +(NumberNode )numberWithCString:(const char )cString;
-+(IdentifierNode )identifierWithCString:(const char )cString; +(FunctionNode )function:(Node
-)theFunction withArray:(Node )theNode; +(ArrayNode )arrayWithNode:(Node )theArrayOrNode
-withNode:(Node )theNode; ```
-
-My expression parser is very simple and will accept the following kinds of expressions:
-
-``` (a AND b) (a OR b) NOT(a) AND(a,b) 1 + 2 4 - 3 a := 100 a = 100 (a = 'foo') OR (b = TRUE)
+```objc
++(PTNode* )numberNodeWithValue:(const char* )value;
++(PTNode* )booleanNodeWithValue:(BOOL)value;
++(PTNode* )variableNodeWithName:(const char* )name;
++(PTNode* )stringNodeWithQValue:(const char* )quoted;
++(PTNode* )functionNode:(NSString* )name,...;
 ```
 
-These will end up being expressed in the following manner when passed through Lex and Yacc:
+The expression parser is very simple and will accept the following kinds of expressions. For example,
 
-```objc FunctionNode(@"AND",ArrayNode(IdentifierNode(@"a"),IdentifierNode(@"b"),nil))
-FunctionNode(@"OR",ArrayNode(IdentifierNode(@"a"),IdentifierNode(@"b"),nil))
-FunctionNode(@"NOT",ArrayNode(IdentifierNode(@"a"),nil))
-FunctionNode(@"AND",ArrayNode(IdentifierNode(@"a"),IdentifierNode(@"b"),nil))
-FunctionNode(@"PLUS",ArrayNode(NumberNode(1),NumberNode(2),nil))
-FunctionNode(@"MINUS",ArrayNode(NumberNode(4),NumberNode(3),nil))
-FunctionNode(@"ASSIGN",ArrayNode(IdentifierNode(@"a"),NumberNode(100),nil))
-FunctionNode(@"EQUALS",ArrayNode(IdentifierNode(@"a"),NumberNode(100),nil))
-FunctionNode(@"OR",ArrayNode(FunctionNode(@"EQUALS",ArrayNode(IdentifierNode(@"a"),StringNode(@"foo"))),FunctionNode(@"EQUALS",ArrayNode(IdentifierNode(@"b"),BooleanNode(YES)))
+```objc
+(a AND b) (a OR b) NOT(a) AND(a,b) 1 + 2 4 - 3 a := 100 a = 100 (a = 'foo') OR (b = TRUE)
 ```
 
-These look much more complicated, but are trival for the computer to evaluate programmatically.
-To achieve this, create your two "rules" files. The file extensions contain "m" to indicate
-they are Objective-C files rather than plain old C.
+To achieve this, create your two "rules" files, the tokenizer ```lexer.lm``` and the parser ```parser.lm```.
+The file extensions contain "m" to indicate they are Objective-C files rather than plain old C.
 
-ExpressionLexer.lm will contain the rules for converting the input into the symbolic tokens.
-ExpressionParser.ym contains the rules and actions for creating a parsed tree of nodes.
+An Objective-C class called ```ParserContext``` contains two methods which return the parse tree:
 
-Finally, an Objective-C class called ExpressionEvaluator.m will contain the important method
-yyYYINPUT which is called by the lex/yacc combination to read the input. Note there is one
-global variable which contains the current parsed node. Because lex and yacc use global
-variables, there can only be one evaluator running at any one time. You can return a shared
-evaluator object [ExpressionEvaluator sharedEvaluator] which includes thread-level locking to
-ensure that the parsing is done serially. So, you can now parse an expression:
+```objc
+@interface ParserContext
+-(PTNode* )parseString:(NSString* )expression error:(NSError** )error;
+-(PTNode* )parseInputStream:(NSInputStream* )stream error:(NSError** )error;
+@end
+```
 
-```objc Node theExpression = [[ExpressionEvaluator sharedEvaluator] parse:@"(a_variable =
-'test') AND (b_variable = 102)"]; ```
+These return a ```PTNode``` parse tree from a string and file stream respectively,
+and will return ```nil``` when there is either a lexical or parse error. You can optionally
+provide an NSError pointer which can return an NSError object giving further information
+on the error condition.
 
-The parse method will return a nil value and throw an exception in the case of a syntax error.
-When an expression is parsed successfully, a Node object is returned, which may be a
-BooleanNode, FunctionNode, NumberNode or StringNode. At this point, you may want to cache away
-your parse trees or you may want to evaluate them. Create the following abstract method in the
-Node class:
+Finally, to actually execute the expression, use the following ```ParserContext``` method:
 
-```objc @implementation Node ... -(NSObject )evaluateWithDictionary:(NSDictionary
-)theDictionary { return nil; } ... @end ```
+```objc
+@interface ParserContext
+-(NSObject* )evaluate:(PTNode* )parseTree error:(NSError** )error;
+@end
+```
 
 Each Node subclass will need to implement this abstract method. The method should return an
 NSObject (which will likely be an NSNumber or NSString). I have included a "dictionary"
