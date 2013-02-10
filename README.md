@@ -66,7 +66,7 @@ Again, this method will return `nil` when there is error actually executing the 
 You can optionally provide an `NSError` pointer which can return an `NSError` object giving further information
 on the error condition.
 
-Each Node subclass will need to implement this abstract method. The method should return an
+Each `PTNode` subclass will need to implement this abstract method. The method should return an
 NSObject (which will likely be an NSNumber or NSString).
 
 The only complicated `evaluate` method is the FunctionNode evaluator, which will need to evaluate
@@ -80,5 +80,10 @@ executed. The `CocoaEvaluator` is an interactive UI version of this.
 
 Would be grateful if you let me know if there are errors, thanks.
 
+
+(This code has been updated since 2007 to fully ARC-compliant code and the CocoaEvaluator
+now uses bindings)
+
 - David Thorpe, February 2013
+
 
