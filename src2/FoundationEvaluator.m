@@ -14,8 +14,8 @@ int main (int argc, const char * argv[]) {
 	@autoreleasepool {
 		ParserContext* parser = [[ParserContext alloc] init];
 		NSError* error = nil;
-		// create the parse tree
-		PTNode* node = [parser parseString:@"61 = (5 + 56)" error:&error];
+		NSString* expression = @"david := 'hello'";
+		PTNode* node = [parser parseString:expression error:&error];
 		if(node==nil) {
 			fprintf(stderr,"%s: %s",[[error domain] UTF8String],[[error localizedDescription] UTF8String]);
 		} else {
@@ -23,7 +23,9 @@ int main (int argc, const char * argv[]) {
 			if(obj==nil) {
 				fprintf(stderr,"%s: %s\n",[[error domain] UTF8String],[[error localizedDescription] UTF8String]);				
 			} else {
-				NSLog(@"result = %@",obj);
+				fprintf(stdout,"expression: %s\n",[expression UTF8String]);
+				fprintf(stdout,"result: %s\n",[[obj description] UTF8String]);
+				fprintf(stdout,"variables: %s\n",[[[parser variables] description] UTF8String]);
 			}
 		}
 	}

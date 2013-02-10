@@ -22,7 +22,7 @@
 		6E283FB6169D70EA004A1978 /* FunctionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E283FB5169D70EA004A1978 /* FunctionNode.m */; };
 		6E99768A169F566F003980CA /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E997689169F566F003980CA /* ParserContext+Bison.m */; };
 		6EFD62B6169B664A00B9EDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		6EFD62C1169B665700B9EDA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62AF169B65FC00B9EDA2 /* main.m */; };
+		6EFD62C1169B665700B9EDA2 /* FoundationEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */; };
 		6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C2169B678C00B9EDA2 /* lexer.lm */; };
 		6EFD62C6169B687600B9EDA2 /* ParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C5169B687600B9EDA2 /* ParserContext.m */; };
 		6EFD62C8169B6D0000B9EDA2 /* parser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD62C7169B6D0000B9EDA2 /* parser.ym */; };
@@ -74,7 +74,7 @@
 		6E283FB5169D70EA004A1978 /* FunctionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionNode.m; sourceTree = "<group>"; };
 		6E5AEC29169C1AE20099AF94 /* ParserContext+Bison.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParserContext+Bison.h"; sourceTree = "<group>"; };
 		6E997689169F566F003980CA /* ParserContext+Bison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ParserContext+Bison.m"; sourceTree = "<group>"; };
-		6EFD62AF169B65FC00B9EDA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationEvaluator.m; sourceTree = "<group>"; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD62C2169B678C00B9EDA2 /* lexer.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = lexer.lm; sourceTree = "<group>"; };
 		6EFD62C4169B687600B9EDA2 /* ParserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserContext.h; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				6E283FA2169D64B5004A1978 /* nodes */,
-				6EFD62AF169B65FC00B9EDA2 /* main.m */,
+				6EFD62AF169B65FC00B9EDA2 /* FoundationEvaluator.m */,
 				6EFD62C2169B678C00B9EDA2 /* lexer.lm */,
 				6EFD62C7169B6D0000B9EDA2 /* parser.ym */,
 				6EFD62C4169B687600B9EDA2 /* ParserContext.h */,
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EFD62C1169B665700B9EDA2 /* main.m in Sources */,
+				6EFD62C1169B665700B9EDA2 /* FoundationEvaluator.m in Sources */,
 				6EFD62C3169B678C00B9EDA2 /* lexer.lm in Sources */,
 				6EFD62C6169B687600B9EDA2 /* ParserContext.m in Sources */,
 				6EFD62C8169B6D0000B9EDA2 /* parser.ym in Sources */,
