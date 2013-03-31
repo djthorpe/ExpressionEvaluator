@@ -127,6 +127,54 @@
 #pragma mark -- Arithmetic Functions --
 ///////////////////////////////////////////////////////////////////////////////
 
+-(NSObject* )function_MULTIPLY:(NSDictionary* )theDictionary {
+	NSArray* theArguments = [self evaluateAllNodesWithDictionary:theDictionary];
+	if([theArguments count] < 2) {
+		[[NSException exceptionWithName:@"InvalidArguments"
+								 reason:@"MULTIPLY needs at least two arguments"
+							   userInfo:nil] raise];
+	}
+	double theSum;
+	for(unsigned i = 0; i < [theArguments count]; i++) {
+		NSNumber* theNumber = [theArguments objectAtIndex:i];
+		if([theNumber isKindOfClass:[NSNumber class]]==NO) {
+			[[NSException exceptionWithName:@"InvalidArguments"
+									 reason:@"MULTIPLY needs number arguments"
+								   userInfo:nil] raise];
+		}
+		if(i==0) {
+			theSum = [theNumber doubleValue];
+		} else {
+			theSum *= [theNumber doubleValue];
+		}
+	}
+	return [NSNumber numberWithDouble:theSum];
+}
+
+-(NSObject* )function_DIVIDE:(NSDictionary* )theDictionary {
+	NSArray* theArguments = [self evaluateAllNodesWithDictionary:theDictionary];
+	if([theArguments count] < 2) {
+		[[NSException exceptionWithName:@"InvalidArguments"
+								 reason:@"DIVIDE needs at least two arguments"
+							   userInfo:nil] raise];
+	}
+	double theSum;
+	for(unsigned i = 0; i < [theArguments count]; i++) {
+		NSNumber* theNumber = [theArguments objectAtIndex:i];
+		if([theNumber isKindOfClass:[NSNumber class]]==NO) {
+			[[NSException exceptionWithName:@"InvalidArguments"
+									 reason:@"DIVIDE needs number arguments"
+								   userInfo:nil] raise];
+		}
+		if(i==0) {
+			theSum = [theNumber doubleValue];
+		} else {
+			theSum /= [theNumber doubleValue];
+		}
+	}
+	return [NSNumber numberWithDouble:theSum];
+}
+
 -(NSObject* )function_PLUS:(NSDictionary* )theDictionary {
 	NSArray* theArguments = [self evaluateAllNodesWithDictionary:theDictionary];
 	if([theArguments count] < 2) {

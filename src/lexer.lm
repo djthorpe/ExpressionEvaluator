@@ -53,6 +53,15 @@ EQUALS  [=]
 	return FUNCTION_MINUS;
 }
 
+
+\* {
+	return FUNCTION_MULTIPLY;
+}
+
+\/ {
+	return FUNCTION_DIVIDE;
+}
+
 {TRUE} {
 	yylval->node = [PTNode booleanNodeWithValue:YES];
 	return VALUE_BOOL;

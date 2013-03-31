@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -1320,6 +1320,8 @@
 											<reference key="NSNextKeyView" ref="575787715"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<bool key="NSEnabled">YES</bool>
+											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
 											<object class="_NSCornerView" key="NSCornerView">
 												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
@@ -1455,6 +1457,7 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="800260367"/>
 									<string key="NSReuseIdentifierKey">_NS:58</string>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="165739420"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.99668874172185429</double>
@@ -1462,12 +1465,13 @@
 								<object class="NSScroller" id="800260367">
 									<reference key="NSNextResponder" ref="165739420"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{1, 287}, {157, 15}}</string>
+									<string key="NSFrame">{{1, 286}, {157, 16}}</string>
 									<reference key="NSSuperview" ref="165739420"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="530923265"/>
 									<string key="NSReuseIdentifierKey">_NS:60</string>
 									<bool key="NSEnabled">YES</bool>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="165739420"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1484,6 +1488,9 @@
 							<reference key="NSHScroller" ref="800260367"/>
 							<reference key="NSContentView" ref="274059245"/>
 							<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
+							<double key="NSMinMagnification">0.25</double>
+							<double key="NSMaxMagnification">4</double>
+							<double key="NSMagnification">1</double>
 						</object>
 						<object class="NSScrollView" id="401924510">
 							<reference key="NSNextResponder" ref="414427165"/>
@@ -1496,29 +1503,10 @@
 										<object class="NSTextView" id="748226595">
 											<reference key="NSNextResponder" ref="526648230"/>
 											<int key="NSvFlags">2322</int>
-											<set class="NSMutableSet" key="NSDragTypes">
-												<string>Apple HTML pasteboard type</string>
-												<string>Apple PDF pasteboard type</string>
-												<string>Apple PICT pasteboard type</string>
-												<string>Apple PNG pasteboard type</string>
-												<string>Apple URL pasteboard type</string>
-												<string>CorePasteboardFlavorType 0x6D6F6F76</string>
-												<string>NSColor pasteboard type</string>
-												<string>NSFilenamesPboardType</string>
-												<string>NSStringPboardType</string>
-												<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-												<string>NeXT RTFD pasteboard type</string>
-												<string>NeXT Rich Text Format v1.0 pasteboard type</string>
-												<string>NeXT TIFF v4.0 pasteboard type</string>
-												<string>NeXT font pasteboard type</string>
-												<string>NeXT ruler pasteboard type</string>
-												<string>WebURLsWithTitlesPboardType</string>
-												<string>public.url</string>
-											</set>
-											<string key="NSFrameSize">{272, 14}</string>
+											<string key="NSFrameSize">{272, 301}</string>
 											<reference key="NSSuperview" ref="526648230"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="76918604"/>
+											<reference key="NSNextKeyView" ref="869775705"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="887173287">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1539,7 +1527,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">11527</int>
+												<int key="NSFlags">67120389</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<reference key="NSBackgroundColor" ref="477376664"/>
@@ -1575,7 +1563,6 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{463, 10000000}</string>
-											<string key="NSMinize">{223, 1}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
@@ -1744,11 +1731,12 @@ wGw</bytes>
 								<object class="NSScroller" id="76918604">
 									<reference key="NSNextResponder" ref="401924510"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{258, 1}, {15, 301}}</string>
+									<string key="NSFrame">{{257, 1}, {16, 301}}</string>
 									<reference key="NSSuperview" ref="401924510"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="165739420"/>
 									<string key="NSReuseIdentifierKey">_NS:83</string>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="401924510"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSCurValue">1</double>
@@ -1762,6 +1750,7 @@ wGw</bytes>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="526648230"/>
 									<string key="NSReuseIdentifierKey">_NS:33</string>
+									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="401924510"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1772,12 +1761,15 @@ wGw</bytes>
 							<string key="NSFrame">{{20, 51}, {274, 303}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="869775705"/>
+							<reference key="NSNextKeyView" ref="526648230"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133138</int>
 							<reference key="NSVScroller" ref="76918604"/>
 							<reference key="NSHScroller" ref="869775705"/>
 							<reference key="NSContentView" ref="526648230"/>
+							<double key="NSMinMagnification">0.25</double>
+							<double key="NSMaxMagnification">4</double>
+							<double key="NSMagnification">1</double>
 						</object>
 						<object class="NSTextField" id="530923265">
 							<reference key="NSNextResponder" ref="414427165"/>
@@ -1785,7 +1777,6 @@ wGw</bytes>
 							<string key="NSFrame">{{20, 20}, {441, 22}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="821709383">
@@ -1809,6 +1800,7 @@ wGw</bytes>
 									<reference key="NSColor" ref="732757270"/>
 								</object>
 							</object>
+							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
 					<string key="NSFrameSize">{481, 374}</string>
@@ -1816,7 +1808,7 @@ wGw</bytes>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="401924510"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1366, 746}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -2438,6 +2430,14 @@ wGw</bytes>
 						<reference key="destination" ref="365968879"/>
 					</object>
 					<int key="connectionID">822</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">initialFirstResponder</string>
+						<reference key="source" ref="513744381"/>
+						<reference key="destination" ref="530923265"/>
+					</object>
+					<int key="connectionID">889</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -4066,7 +4066,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">888</int>
+			<int key="maxID">889</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4101,6 +4101,47 @@ wGw</bytes>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">NSDocument</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="printDocument:">id</string>
+						<string key="revertDocumentToSaved:">id</string>
+						<string key="runPageLayout:">id</string>
+						<string key="saveDocument:">id</string>
+						<string key="saveDocumentAs:">id</string>
+						<string key="saveDocumentTo:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="printDocument:">
+							<string key="name">printDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="revertDocumentToSaved:">
+							<string key="name">revertDocumentToSaved:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="runPageLayout:">
+							<string key="name">runPageLayout:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocument:">
+							<string key="name">saveDocument:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocumentAs:">
+							<string key="name">saveDocumentAs:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="saveDocumentTo:">
+							<string key="name">saveDocumentTo:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSDocument.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">NSLayoutConstraint</string>
 					<string key="superclassName">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -4112,6 +4153,10 @@ wGw</bytes>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
+			<real value="1070" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
