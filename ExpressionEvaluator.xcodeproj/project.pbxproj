@@ -33,7 +33,6 @@
 		6E557C9E16C80BB5005EFB1B /* ParserContext+Bison.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C8516C80B77005EFB1B /* ParserContext+Bison.m */; };
 		6E557C9F16C80BB5005EFB1B /* ParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C8716C80B77005EFB1B /* ParserContext.m */; };
 		6E557CA016C80BBC005EFB1B /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 14DE06D2169504B30052F083 /* LICENSE.md */; };
-		6E557CA216C80BE1005EFB1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E557CA116C80BE1005EFB1B /* Foundation.framework */; };
 		6EFD62B6169B664A00B9EDA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,9 +51,6 @@
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		14DE069C169504680052F083 /* CocoaEvaluator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaEvaluator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		14DE06A0169504680052F083 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		14DE06A1169504680052F083 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		14DE06A2169504680052F083 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14DE06D2169504B30052F083 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
 		14DE06D3169504B30052F083 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -82,7 +78,6 @@
 		6E557C8516C80B77005EFB1B /* ParserContext+Bison.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ParserContext+Bison.m"; sourceTree = "<group>"; };
 		6E557C8616C80B77005EFB1B /* ParserContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserContext.h; sourceTree = "<group>"; };
 		6E557C8716C80B77005EFB1B /* ParserContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserContext.m; sourceTree = "<group>"; };
-		6E557CA116C80BE1005EFB1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoundationEvaluator; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E557CA216C80BE1005EFB1B /* Foundation.framework in Frameworks */,
 				14DE069E169504680052F083 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,7 +104,6 @@
 		08FB7794FE84155DC02AAC07 /* ExpressionEvaluator */ = {
 			isa = PBXGroup;
 			children = (
-				6E557CA116C80BE1005EFB1B /* Foundation.framework */,
 				6E557C6B16C80B76005EFB1B /* src */,
 				14DE06D2169504B30052F083 /* LICENSE.md */,
 				14DE06D3169504B30052F083 /* README.md */,
@@ -125,19 +118,8 @@
 			children = (
 				6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */,
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
-				14DE069F169504680052F083 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		14DE069F169504680052F083 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				14DE06A0169504680052F083 /* AppKit.framework */,
-				14DE06A1169504680052F083 /* CoreData.framework */,
-				14DE06A2169504680052F083 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
