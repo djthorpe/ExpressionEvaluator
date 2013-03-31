@@ -33,8 +33,16 @@ which is the superclass of a number of node implementations. There are a number 
 
 The expression parser is very simple and will accept the following kinds of expressions. For example,
 
-```objc
-(a AND b) (a OR b) NOT(a) AND(a,b) 1 + 2 4 - 3 a := 100 a = 100 (a = 'foo') OR (b = TRUE)
+```
+(a AND b)
+(a OR b) 
+NOT(a)
+AND(a,b)
+1 + 2
+4 - 3
+a := 100 
+a = 100
+(a = 'foo') OR (b = TRUE)
 ```
 
 To achieve this, create your two "rules" files, the tokenizer `lexer.lm` and the parser `parser.lm`.
