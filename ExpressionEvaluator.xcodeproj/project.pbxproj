@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14314A021709AD38000F7534 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		14314A0D1709AD3F000F7534 /* postgresql.lm in Sources */ = {isa = PBXBuildFile; fileRef = 143149FB1709AC93000F7534 /* postgresql.lm */; };
+		14314A101709AEAF000F7534 /* PGLexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14314A0F1709AEAF000F7534 /* PGLexer.m */; };
 		14DE069E169504680052F083 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E173D6F0B50EAD8003BAAFF /* Cocoa.framework */; };
 		6E557C8816C80B82005EFB1B /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C6E16C80B76005EFB1B /* AppController.m */; };
 		6E557C8916C80B82005EFB1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E557C6F16C80B76005EFB1B /* main.m */; };
@@ -37,6 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		143149FF1709AD38000F7534 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		6EFD62B2169B664A00B9EDA2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +62,11 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		143149FB1709AC93000F7534 /* postgresql.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = postgresql.lm; sourceTree = "<group>"; };
+		14314A011709AD38000F7534 /* Tokenizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tokenizer; sourceTree = BUILT_PRODUCTS_DIR; };
+		14314A041709AD38000F7534 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14314A0E1709AEAF000F7534 /* PGLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGLexer.h; sourceTree = "<group>"; };
+		14314A0F1709AEAF000F7534 /* PGLexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGLexer.m; sourceTree = "<group>"; };
 		14DE069C169504680052F083 /* CocoaEvaluator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaEvaluator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DE06D2169504B30052F083 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
 		14DE06D3169504B30052F083 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -82,6 +99,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		143149FE1709AD38000F7534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14314A021709AD38000F7534 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14DE0699169504680052F083 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,9 +129,11 @@
 		08FB7794FE84155DC02AAC07 /* ExpressionEvaluator */ = {
 			isa = PBXGroup;
 			children = (
+				143149FA1709AC14000F7534 /* lexer */,
 				6E557C6B16C80B76005EFB1B /* src */,
 				14DE06D2169504B30052F083 /* LICENSE.md */,
 				14DE06D3169504B30052F083 /* README.md */,
+				14314A031709AD38000F7534 /* Tokenizer */,
 				08FB779DFE84155DC02AAC07 /* Frameworks */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -122,11 +149,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		143149FA1709AC14000F7534 /* lexer */ = {
+			isa = PBXGroup;
+			children = (
+				143149FB1709AC93000F7534 /* postgresql.lm */,
+				14314A0E1709AEAF000F7534 /* PGLexer.h */,
+				14314A0F1709AEAF000F7534 /* PGLexer.m */,
+			);
+			path = lexer;
+			sourceTree = "<group>";
+		};
+		14314A031709AD38000F7534 /* Tokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				14314A041709AD38000F7534 /* main.m */,
+			);
+			path = Tokenizer;
+			sourceTree = "<group>";
+		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				14DE069C169504680052F083 /* CocoaEvaluator.app */,
 				6EFD62B4169B664A00B9EDA2 /* FoundationEvaluator */,
+				14314A011709AD38000F7534 /* Tokenizer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +243,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		14314A001709AD38000F7534 /* Lexer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14314A0A1709AD38000F7534 /* Build configuration list for PBXNativeTarget "Lexer" */;
+			buildPhases = (
+				143149FD1709AD38000F7534 /* Sources */,
+				143149FE1709AD38000F7534 /* Frameworks */,
+				143149FF1709AD38000F7534 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lexer;
+			productName = Tokenizer;
+			productReference = 14314A011709AD38000F7534 /* Tokenizer */;
+			productType = "com.apple.product-type.tool";
+		};
 		14DE069B169504680052F083 /* CocoaEvaluator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "CocoaEvaluator" */;
@@ -252,6 +315,7 @@
 			targets = (
 				14DE069B169504680052F083 /* CocoaEvaluator */,
 				6EFD62B3169B664A00B9EDA2 /* FoundationEvaluator */,
+				14314A001709AD38000F7534 /* Lexer */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +333,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		143149FD1709AD38000F7534 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14314A0D1709AD3F000F7534 /* postgresql.lm in Sources */,
+				14314A101709AEAF000F7534 /* PGLexer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14DE0698169504680052F083 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +382,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		14314A0B1709AD38000F7534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tokenizer/Tokenizer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		14314A0C1709AD38000F7534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tokenizer/Tokenizer-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		14DE06B6169504680052F083 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,6 +562,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		14314A0A1709AD38000F7534 /* Build configuration list for PBXNativeTarget "Lexer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14314A0B1709AD38000F7534 /* Debug */,
+				14314A0C1709AD38000F7534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		14DE06B5169504680052F083 /* Build configuration list for PBXNativeTarget "CocoaEvaluator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
