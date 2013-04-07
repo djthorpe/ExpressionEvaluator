@@ -8,14 +8,10 @@
 
 #import "PGLexer.h"
 
-@interface PGParserState : NSObject {
-	NSString* _name;
-}
-
-@end
-
 @interface PGParser : PGLexer {
 	NSMutableArray* _states;
 }
+
++(PGParser* )parserWithStateMachine:(NSString* )path;
 
 @end

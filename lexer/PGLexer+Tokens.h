@@ -1,5 +1,5 @@
 
-typedef enum {
+enum {
 	PGLexerSQString,
 	PGLexerDQString,
 	PGLexerFloat,
@@ -17,5 +17,5 @@ typedef enum {
 	PGLexerWhitespace,
 	PGLexerNewline,
 	PGLexerOther
-} PGLexerTokenType;
+};
 

@@ -13,18 +13,36 @@
 %}
 
 HASH       [#]
+KW_STATE   state
+KW_DEFAULT default
+KW_ERROR   error
+KW_ACTION  action
+KW_PUSH    push
+KW_POP     pop
+KW_EMPTY   empty
 ID	       [A-Za-z_][A-Za-z0-9_]*
 DECIMAL    [-+]?[0-9]+
 OPENBRACE  [{]
 CLOSEBRACE [}]
+SEMICOLON  [;]
+COMMA      [,]
 WHITESP    [\t ]+
 NEWLINE    \r?\n
 
 %%
 
+{KW_STATE}         { return PGParserKWState; }
+{KW_DEFAULT}       { return PGParserKWDefault; }
+{KW_ERROR}         { return PGParserKWError; }
+{KW_ACTION}        { return PGParserKWAction; }
+{KW_PUSH}          { return PGParserKWPush; }
+{KW_POP}           { return PGParserKWPop; }
+{KW_EMPTY}         { return PGParserKWEmpty; }
 {DECIMAL}          { return PGParserDecimal; }
 {HASH}		       { return PGParserHash; }
-{ID}		       { return PGParserKeyword; }
+{ID}		       { return PGParserIdentifier; }
+{COMMA}            { return PGParserComma; }
+{SEMICOLON}        { return PGParserSemicolon; }
 {OPENBRACE}        { return PGParserOpenBrace; }
 {CLOSEBRACE}       { return PGParserCloseBrace; }
 {WHITESP}	       { return PGParserWhitespace; }
