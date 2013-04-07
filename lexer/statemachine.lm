@@ -1,0 +1,34 @@
+
+%option reentrant
+%option noyywrap
+%option yylineno
+
+%{
+	#import "PGLexer.h"
+	#import "PGLexer+Private.h"
+	#import "PGParser+Tokens.h"
+	#define YY_EXTRA_TYPE void*
+	#define YY_INPUT(buf,bytes_read,max_size) { bytes_read = _PGLexer_input(yyextra,buf,max_size); }
+	#define YY_FATAL_ERROR(msg) { _PGLexer_fatal_error(msg); }
+%}
+
+HASH       [#]
+ID	       [A-Za-z_][A-Za-z0-9_]*
+DECIMAL    [-+]?[0-9]+
+OPENBRACE  [{]
+CLOSEBRACE [}]
+WHITESP    [\t ]+
+NEWLINE    \r?\n
+
+%%
+
+{DECIMAL}          { return PGParserDecimal; }
+{HASH}		       { return PGParserHash; }
+{ID}		       { return PGParserKeyword; }
+{OPENBRACE}        { return PGParserOpenBrace; }
+{CLOSEBRACE}       { return PGParserCloseBrace; }
+{WHITESP}	       { return PGParserWhitespace; }
+{NEWLINE}	       { return PGParserNewline; }
+.			       { /* default rule */ return PGParserOther; }
+
+%%
