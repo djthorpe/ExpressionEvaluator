@@ -6,7 +6,7 @@
 %{
 	#import "PGLexer.h"
 	#import "PGLexer+Private.h"
-	#import "PGParser+Tokens.h"
+	#import "PGStateMachine+Tokens.h"
 	#define YY_EXTRA_TYPE void*
 	#define YY_INPUT(buf,bytes_read,max_size) { bytes_read = _PGLexer_input(yyextra,buf,max_size); }
 	#define YY_FATAL_ERROR(msg) { _PGLexer_fatal_error(msg); }

@@ -10,7 +10,8 @@ typedef struct {
 extern NSString* PGLexerErrorDomain;
 typedef enum {
 	PGLexerFileReadError = 100,
-	PGLexerFatalError = 101
+	PGLexerSyntaxError = 101,
+	PGLexerFatalError = 102
 } PGLexerErrorCode;
 
 @interface PGLexer : NSObject

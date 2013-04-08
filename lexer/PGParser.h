@@ -7,11 +7,12 @@
 //
 
 #import "PGLexer.h"
+#import "PGStateMachine.h"
 
 @interface PGParser : PGLexer {
-	NSMutableArray* _states;
+	PGStateMachine* _statemachine;
 }
 
-+(PGParser* )parserWithStateMachine:(NSString* )path;
++(PGParser* )parserWithStateMachine:(NSString* )path error:(NSError** )error;
 
 @end

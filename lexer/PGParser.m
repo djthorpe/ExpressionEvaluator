@@ -5,14 +5,21 @@
 
 @implementation PGParser
 
--(void)_loadStateMachine:(NSString* )path error:(NSError** )error {
-	[super tokenizeFile:path error:error];
+-(id)init {
+	self = [super init];
+	if(self) {
+		_statemachine = [[PGStateMachine alloc] init];
+	}
+	return self;
 }
 
-+(PGParser* )parserWithStateMachine:(NSString* )path {
+-(void)_loadStateMachine:(NSString* )path error:(NSError** )error {
+	[_statemachine tokenizeFile:path error:error];
+}
+
++(PGParser* )parserWithStateMachine:(NSString* )path  error:(NSError** )error {
 	PGParser* parser = [[PGParser alloc] init];
-	NSError* error = nil;
-	[parser _loadStateMachine:path error:&error];
+	[parser _loadStateMachine:path error:error];
 	if(error) {
 		return nil;
 	}
